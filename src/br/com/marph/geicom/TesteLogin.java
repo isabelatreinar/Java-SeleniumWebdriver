@@ -20,19 +20,33 @@ public class TesteLogin {
 
 	@Test
 	public void testLoginAnotai() {
-		driver.get("http://anotaai-alinesolutions.rhcloud.com/main.html#/access/Login");
-		WebElement user = driver.findElement(By.name("email"));
-		WebElement pass = driver.findElement(By.name("senha"));
-		WebElement access = driver.findElement(By.id("btn-login"));
-		user.sendKeys("anotaai@gmail.com");
-		pass.sendKeys("10481");
-		access.click();
+		driver.get("http://anotaai-alinesolutions.rhcloud.com");
+		buildElement("email", "anotaai@gmail.com");
+		buildElement("senha", "10481");
+		
+		String[] btns = {"btn-login", "outro-btn"};
+		
+		clickElement(btns);
+		
 		Assert.assertNotNull(driver.findElement(By.id("nome-perfil")));
 	}
 
-	@After
+	private void buildElement(String fieldId, String keys) {
+		WebElement user = driver.findElement(By.name(fieldId));
+		user.sendKeys(keys);
+	}
+	
+	private void clickElement(String... elements) {
+		WebElement access = null;
+		for (String element : elements) {
+			access = driver.findElement(By.id(element));
+			access.click();
+		}
+	}
+	
+	/*@After
 	public void driverClose() {
 		driver.quit();
-	}
+	}*/
 
 }
