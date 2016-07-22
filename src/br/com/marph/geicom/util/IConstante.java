@@ -36,5 +36,9 @@ public interface IConstante {
 		String BOTAO_LOGIN = "btn-login";
 		
 	}
+
+	interface ElementId {
+		String NOME_PERFIL = "nome-perfil";
+	}
 	
 }

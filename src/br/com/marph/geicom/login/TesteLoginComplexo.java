@@ -30,18 +30,20 @@ public class TesteLoginComplexo {
 	public void testLoginAnotai() {
 		driver.get(IConstante.URI.LOGIN);
 		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_ACESSO);
-		List<Entry<String, String>> inputs = new ArrayList<>();
-		inputs.add(IConstante.HtmlInput.EMAIL);
-		inputs.add(IConstante.HtmlInput.SENHA);
-		seleniumUtil.buildElement(driver, inputs);
+		seleniumUtil.buildElement(driver, getInputs());
 		//caso quisesse setar em apenas um campo, pode ser feito de maneira direta sem utilizar a lista
 		//seleniumUtil.buildElement(driver, IConstante.HtmlInput.SENHA);
 		//caso quisesse setar em apenas um campo passando os nomes do campo
 		//seleniumUtil.buildElement(driver, "email", "anotaai@gmail.com");NAO RECOMENDADO
-		
 		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_LOGIN);
-		
-		Assert.assertNotNull(driver.findElement(By.id("nome-perfil")));
+		Assert.assertNotNull(driver.findElement(By.id(IConstante.ElementId.NOME_PERFIL)));
+	}
+	
+	private List<Entry<String, String>> getInputs() {
+		List<Entry<String, String>> inputs = new ArrayList<>();
+		inputs.add(IConstante.HtmlInput.EMAIL);
+		inputs.add(IConstante.HtmlInput.SENHA);
+		return inputs;
 	}
 	
 	@After
