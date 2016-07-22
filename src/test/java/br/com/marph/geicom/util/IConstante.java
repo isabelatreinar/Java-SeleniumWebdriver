@@ -11,7 +11,7 @@ public interface IConstante {
 	}
 	
 	interface URI {
-		String LOGIN = "http://anotaai-alinesolutions.rhcloud.com/";
+		String LOGIN = "http://localhost:8888/";
 	}
 	
 	/**
@@ -34,6 +34,8 @@ public interface IConstante {
 
 		String BOTAO_ACESSO = "btn-access";
 		String BOTAO_LOGIN = "btn-login";
+		String BOTAO_PROFILE = "btn-profile";
+		String BOTAO_SHUTDOWN = "btn-shutdown";
 		
 	}
 

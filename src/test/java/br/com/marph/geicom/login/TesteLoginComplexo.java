@@ -48,6 +48,9 @@ public class TesteLoginComplexo {
 	
 	@After
 	public void driverClose() {
+		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_PROFILE);
+		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_SHUTDOWN);
+		//decomentar caso queira fechar o browser quando os testes forem concuidos
 		//driver.quit();
 	}
 
