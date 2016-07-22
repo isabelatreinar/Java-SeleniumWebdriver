@@ -11,7 +11,7 @@ public interface IConstante {
 	}
 	
 	interface URI {
-		String LOGIN = "http://localhost:8888/";
+		String LOGIN = "http://anotaai-alinesolutions.rhcloud.com/";
 	}
 	
 	/**

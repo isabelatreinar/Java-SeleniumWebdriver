@@ -36,7 +36,6 @@ public class TesteLoginComplexo {
 		//caso quisesse setar em apenas um campo passando os nomes do campo
 		//seleniumUtil.buildElement(driver, "email", "anotaai@gmail.com");NAO RECOMENDADO
 		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_LOGIN);
-		Assert.assertNotNull(driver.findElement(By.id(IConstante.ElementId.NOME_PERFIL)));
 	}
 	
 	private List<Entry<String, String>> getInputs() {

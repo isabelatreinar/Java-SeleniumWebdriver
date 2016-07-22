@@ -34,12 +34,12 @@ public class TesteLoginSimples {
 		
 		Assert.assertNotNull(driver.findElement(By.id("nome-perfil")));
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btn-access")));
-		WebElement btnProfile = driver.findElement(By.id("btn-access"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btn-profile")));
+		WebElement btnProfile = driver.findElement(By.id("btn-profile"));
 		btnProfile.click();
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btn-access")));
-		WebElement btnShutdown = driver.findElement(By.id("btn-access"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btn-shutdown")));
+		WebElement btnShutdown = driver.findElement(By.id("btn-shutdown"));
 		btnShutdown.click();
 	}
 
