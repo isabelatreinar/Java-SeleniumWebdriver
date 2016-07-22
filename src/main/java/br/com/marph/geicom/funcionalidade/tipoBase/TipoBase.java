@@ -1,8 +1,5 @@
 package br.com.marph.geicom.funcionalidade.tipoBase;
-import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -22,7 +19,7 @@ public class TipoBase {
 		driver.quit();
 	}*/
 	
-	@Test
+	//@Test
 	public void browser(){
 		LoginSistema.acessarUrl(driver);
 		
