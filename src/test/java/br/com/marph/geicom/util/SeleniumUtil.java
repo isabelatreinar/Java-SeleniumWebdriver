@@ -45,9 +45,9 @@ public class SeleniumUtil {
 	 * @param driver - Instancia do browser conectado a um dominio
 	 * @param fieldKey - id do elemento html no qual serah inserido o valor
 	 * @param fieldValue - valor que serah atribuido ao elemento html
-	 */
+	 * @param buildElement faz o seguinte, vc passa pra ele o id de um campo e o valor que vc quer setar nele*/ 
 	public void buildElement(WebDriver driver, String fieldKey, String fieldValue) {
-		WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
+		WebDriverWait wait = new WebDriverWait(driver, IConstantes.Parametro.DEFAULT_WAIT);
 		//farah com que o driver busque pelo elemento durante cinco segundos
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(fieldKey)));
 		WebElement user = driver.findElement(By.name(fieldKey));
@@ -55,7 +55,7 @@ public class SeleniumUtil {
 	}
 
 	public void clickElement(WebDriver driver, String... elements) {
-		WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
+		WebDriverWait wait = new WebDriverWait(driver, IConstantes.Parametro.DEFAULT_WAIT);
 		WebElement access = null;
 		for (String element : elements) {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(element)));

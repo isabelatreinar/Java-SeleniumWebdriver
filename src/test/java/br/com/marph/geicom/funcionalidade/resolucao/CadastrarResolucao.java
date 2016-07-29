@@ -15,13 +15,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import br.com.marph.geicom.util.AcessoUtils;
+import br.com.marph.geicom.util.IConstante;
 import br.com.marph.geicom.util.Menus;
-
 
 public class CadastrarResolucao {
 
@@ -30,17 +29,19 @@ public class CadastrarResolucao {
 	@Before
 	public void startUp() {
 		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//driver.manage().window().maximize();
+	
 	}
-
 	/*
 	 * @After public void driverClose(){ driver.quit(); }
 	 */
 
 	@Test
-	public void abreMenu() throws AWTException {
+	public void abreMenu() throws AWTException, InterruptedException {
 
-		AcessoUtils.acessarUrl(driver);
-
+		driver.get(IConstante.Url.LOGIN);
+		
 		AcessoUtils.acessarSistema(driver);
 
 		Menus.menuResolucao(driver);
@@ -50,7 +51,6 @@ public class CadastrarResolucao {
 	}
 
 	private void cadastrarResolucao() {
-
 
 		// Preencher campo Programa/Outros
 		driver.findElement(By.id("btnNovaResolucao")).click();
@@ -94,13 +94,15 @@ public class CadastrarResolucao {
 
 	}
 
-	public void cadastrarBeneficiarios() throws AWTException {
+	public void cadastrarBeneficiarios() throws AWTException, InterruptedException {
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(2, TimeUnit.SECONDS)
 				.pollingEvery(1, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
 
-		driver.findElement(By.id("buttonImportarPlanilha")).click();
-		driver.findElement(By.id("uploadBeneficiariosContemplados")).click();
+		AcessoUtils.idClick(driver, "buttonImportarPlanilha", "uploadBeneficiariosContemplados");
+		//TODO
+		//driver.findElement(By.id("buttonImportarPlanilha")).click();
+		//driver.findElement(By.id("uploadBeneficiariosContemplados")).click();
 
 		// objeto que guarda na memória (ctrl+c) o caminho
 		// C:\\GEICOM\\beneficiarioExport
@@ -110,20 +112,23 @@ public class CadastrarResolucao {
 		// comandos robot para selecionar na máquina o arquivo
 		// beneficiarioExport
 		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		//Press pressiona a tecla passada por parâmetro
+		robot.keyPress(KeyEvent.VK_ENTER); 
+		//Release solta a tecla passada por parâmetro
+		robot.keyRelease(KeyEvent.VK_ENTER); 
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_V);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_V);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-
-		// espera até 2 segundos até encontrar o elemento na página
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttonImportar")));
 		
-		//TODO
+
+		driver.findElement(By.xpath("html/body")).click();
 		driver.findElement(By.id("buttonImportar")).click();
+		Thread.sleep(9000);		
+		driver.findElement(By.id("btnProximo"));
+		
 
 	}
 

@@ -10,9 +10,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.marph.geicom.util.IConstante;
+import br.com.marph.geicom.util.IConstantes;
 import br.com.marph.geicom.util.SeleniumUtil;
-//isabela de oliveira
+//
 public class TesteLoginComplexo {
 
 	private WebDriver driver;
@@ -26,28 +26,28 @@ public class TesteLoginComplexo {
 
 	@Test
 	public void testLoginAnotai() {
-		driver.get(IConstante.URI.LOGIN);
-		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_ACESSO);
+		driver.get(IConstantes.URI.LOGIN);
+		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_ACESSO);
 		seleniumUtil.buildElement(driver, getInputs());
 		//caso quisesse setar em apenas um campo, pode ser feito de maneira direta sem utilizar a lista
 		//seleniumUtil.buildElement(driver, IConstante.HtmlInput.SENHA);
 		//caso quisesse setar em apenas um campo passando os nomes do campo
 		//seleniumUtil.buildElement(driver, "email", "anotaai@gmail.com");NAO RECOMENDADO
-		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_LOGIN);
+		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_LOGIN);
 	}
 	
 	private List<Entry<String, String>> getInputs() {
 		List<Entry<String, String>> inputs = new ArrayList<>();
-		inputs.add(IConstante.HtmlInput.EMAIL);
-		inputs.add(IConstante.HtmlInput.SENHA);
+		inputs.add(IConstantes.HtmlInput.EMAIL);
+		inputs.add(IConstantes.HtmlInput.SENHA);
 		return inputs;
 	}
 	
 	@After
 	public void driverClose() {
 		//deslogar depois dos testes efetuados
-		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_PROFILE);
-		seleniumUtil.clickElement(driver, IConstante.HtmlCommandId.BOTAO_SHUTDOWN);
+		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_PROFILE);
+		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_SHUTDOWN);
 		//decomentar caso queira fechar o browser quando os testes forem concuidos
 		//driver.quit();
 	}
