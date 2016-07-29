@@ -1,14 +1,12 @@
 package br.com.marph.geicom.util;
 
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.marph.geicom.enums.Enums;
-
-import org.openqa.selenium.WebDriver;
+import br.com.marph.geicom.enums.EnumPerfil;
 
 public class AcessoUtils {
 
@@ -37,7 +35,7 @@ public class AcessoUtils {
 
 	public static void acessarSistema(WebDriver driver) {
 		idClick(driver, IConstante.acessarSistema.BOTAO_ACESSAR, IConstante.acessarSistema.BOTAO_CONFIRMAR,
-				Enums.ADMINISTRADOR.getId(), IConstante.acessarSistema.BOTAO_ACESSAR_PERFIL);
+				EnumPerfil.ADMINISTRADOR.getId(), IConstante.acessarSistema.BOTAO_ACESSAR_PERFIL);
 	}
 
 }
