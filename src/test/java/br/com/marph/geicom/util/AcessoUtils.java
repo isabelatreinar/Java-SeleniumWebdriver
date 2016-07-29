@@ -1,12 +1,14 @@
 package br.com.marph.geicom.util;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.marph.geicom.enums.EnumPerfil;
+
+import org.openqa.selenium.WebDriver;
 
 public class AcessoUtils {
 
@@ -18,18 +20,19 @@ public class AcessoUtils {
 	}
 
 	public static void idClick(WebDriver driver, String... ids) {
-		WebDriverWait wait = new WebDriverWait(driver, IConstantes.Parametro.DEFAULT_WAIT);
+	//	WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
 		for (String idElemento : ids) {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idElemento)));
+		//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idElemento)));
 			driver.findElement(By.id(idElemento)).click();
 		}
 	}
 	
 	public static void idClickXpath(WebDriver driver, String... ids) {
-		WebDriverWait wait = new WebDriverWait(driver, IConstantes.Parametro.DEFAULT_WAIT);
+		//WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
 		for (String idElemento : ids) {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idElemento)));
+			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idElemento)));
 			driver.findElement(By.xpath(idElemento)).click();
+			
 		}
 	}
 
