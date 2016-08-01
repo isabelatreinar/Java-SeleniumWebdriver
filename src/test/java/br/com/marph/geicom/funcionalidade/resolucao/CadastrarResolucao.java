@@ -40,7 +40,15 @@ public class CadastrarResolucao {
 		resolucao.abaResolucao();
 
 		CadastroAbaBeneficiario beneficiario = new CadastroAbaBeneficiario(driver);
-		beneficiario.cadastrarBeneficiarios();
+		beneficiario.abaBeneficiarios();
+		
+		CadastroAbaIndicadores indicadores = new CadastroAbaIndicadores(driver);
+		indicadores.abaIndicadores();
+		
+		CadastroAbaPeriodos periodos = new CadastroAbaPeriodos(driver);
+		periodos.abaPeriodos();
+		
+		
 	}
 
 	
