@@ -48,6 +48,9 @@ public class CadastrarResolucao {
 		CadastroAbaPeriodos periodos = new CadastroAbaPeriodos(driver);
 		periodos.abaPeriodos();
 		
+		CadastroAbaCronograma cronograma = new CadastroAbaCronograma(driver);
+		cronograma.abaCronograma();
+		
 		
 	}
 

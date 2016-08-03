@@ -18,7 +18,7 @@ public class CadastroAbaPeriodos {
 
 	public void abaPeriodos() throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
+		//WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.LONG_WAIT);
 		
 		WebElement editar = driver.findElement(By.xpath("//*[@class='panel-heading']/ul/li[3]/a"));
 		editar.click();
@@ -48,8 +48,8 @@ public class CadastroAbaPeriodos {
 
 		WebElement salvar = driver.findElement(By.xpath("//*[@class='panel-heading']/ul/li[1]/a"));
 		salvar.click();
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnProximo")));
+		Thread.sleep(5000);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnProximo")));
 		
 		WebElement proximo = driver.findElement(By.id("btnProximo"));
 		proximo.click();

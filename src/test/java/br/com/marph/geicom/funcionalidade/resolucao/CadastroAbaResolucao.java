@@ -20,7 +20,7 @@ public class CadastroAbaResolucao {
 
 	public void abaResolucao() throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
+		//WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
 
 		String nomePrograma = "Samu";
 		String numeroResolucao = "1235";
@@ -42,8 +42,9 @@ public class CadastroAbaResolucao {
 		// Selecionar Base Legal
 
 		//espera até que o nome do campo de base legal apareça na tela, para poder selecionar
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("termosBaseLegal_label")));
-
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("termosBaseLegal_label")));
+		Thread.sleep(3000);
+		
 		WebElement baseLegal = driver.findElement(By.xpath(".//*[@id='termosBaseLegal_chosen']/ul"));
 		baseLegal.click();
 		baseLegal.sendKeys(Keys.ENTER);

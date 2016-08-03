@@ -9,8 +9,11 @@ import java.awt.event.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.marph.geicom.util.AcessoUtils;
+import br.com.marph.geicom.util.IConstante;
 
 public class CadastroAbaBeneficiario {
 
@@ -21,6 +24,8 @@ public class CadastroAbaBeneficiario {
 	}
 
 	public void abaBeneficiarios() throws AWTException, InterruptedException {
+
+		//WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
 
 		AcessoUtils.idClick(driver, "buttonImportarPlanilha", "uploadBeneficiariosContemplados");
 		// objeto que guarda na memória (ctrl+c) o caminho
@@ -42,8 +47,9 @@ public class CadastroAbaBeneficiario {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
-		//clicando na página, para selecionar o botão Importar - perda de foco
+		// clicando na página, para selecionar o botão Importar - perda de foco
 		driver.findElement(By.xpath("html/body")).click();
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("buttonImportar")));
 		Thread.sleep(5000);
 
 		WebElement botaoImportar = driver.findElement(By.id("buttonImportar"));
