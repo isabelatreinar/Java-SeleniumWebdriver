@@ -3,10 +3,6 @@ package br.com.marph.geicom.funcionalidade.resolucao;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import br.com.marph.geicom.util.IConstante;
 
 public class CadastroAbaPeriodos {
 
@@ -41,8 +37,7 @@ public class CadastroAbaPeriodos {
 		dataInicial.clear();
 		dataInicial.sendKeys(dataIni);
 
-		WebElement atualizar = driver
-				.findElement(By.xpath("//*[@class='panel-collapse collapse in']/div/div[1]/div[4]/a"));
+		WebElement atualizar = driver.findElement(By.xpath("//*[@class='panel-collapse collapse in']/div/div[1]/div[4]/a"));
 		atualizar.click();
 		Thread.sleep(3000);
 

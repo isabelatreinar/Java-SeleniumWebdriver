@@ -12,7 +12,7 @@ public class CadastroAbaCronograma {
 	private String period = "1";
 	private String dataIni = "01102016";
 	private String valorParcela = "100000";
-	private String percentFixo = "50000";
+	private String percentFixo = "5000";
 	private String percentCusteio = "10000";
 
 	public CadastroAbaCronograma(WebDriver driver) {
@@ -56,6 +56,13 @@ public class CadastroAbaCronograma {
 		WebElement percentualCusteio = driver.findElement(By.xpath(".//*[@class='panel-collapse collapse in']/div/div[3]/div[2]/div[5]/div/input"));
 		percentualCusteio.click();
 		percentualCusteio.sendKeys(percentCusteio);
+		
+		WebElement salvarModelo = driver.findElement(By.xpath(".//*[@id='accordion']/div/div[1]/ul/li[1]/a"));
+		salvarModelo.click();
+		Thread.sleep(8000);
+		
+		WebElement proximo = driver.findElement(By.id("btnProximo"));
+		proximo.click();
 
 	}
 }

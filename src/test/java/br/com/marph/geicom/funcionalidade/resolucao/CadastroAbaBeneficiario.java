@@ -9,11 +9,8 @@ import java.awt.event.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.marph.geicom.util.AcessoUtils;
-import br.com.marph.geicom.util.IConstante;
 
 public class CadastroAbaBeneficiario {
 
@@ -30,7 +27,7 @@ public class CadastroAbaBeneficiario {
 		AcessoUtils.idClick(driver, "buttonImportarPlanilha", "uploadBeneficiariosContemplados");
 		// objeto que guarda na memória (ctrl+c) o caminho
 		// C:\\GEICOM\\beneficiarioExport
-		StringSelection ss = new StringSelection("C:\\GEICOM\\beneficiarioExport");
+		StringSelection ss = new StringSelection("C:\\arquivoselenium\\beneficiarioExport");
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
 		// comandos robot para selecionar na máquina o arquivo

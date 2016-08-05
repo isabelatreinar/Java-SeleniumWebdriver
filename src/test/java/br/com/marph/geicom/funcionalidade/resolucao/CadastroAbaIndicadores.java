@@ -9,7 +9,7 @@ public class CadastroAbaIndicadores {
 	private WebDriver driver;
 	private String modelo = "Primeiro";
 	private String nomeIndic = "dias";
-	private String ptcorte = "50000";
+	private String ptcorte = "5000";
 	private String pesoInd = "10000";
 
 	public CadastroAbaIndicadores(WebDriver driver) {
