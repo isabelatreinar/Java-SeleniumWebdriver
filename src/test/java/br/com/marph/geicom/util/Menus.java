@@ -10,9 +10,21 @@ public class Menus {
 
 	public static void menuResolucao(WebDriver driver) {
 
-		driver.findElement(By.xpath("//td[@onmouseup='cmItemMouseUp (this,4)']")).click();;
-		driver.findElement(By.xpath(".//*[@id='resolucaoMenu']/td[2]")).click();
+		WebElement menuCadastros = driver.findElement(By.xpath("//td[@onmouseup='cmItemMouseUp (this,4)']"));
+		menuCadastros.click();
+
+		WebElement subMenuResolucao = driver.findElement(By.xpath(".//*[@id='resolucaoMenu']/td[2]"));
+		subMenuResolucao.click();
+
+	}
+
+	public static void menuIndicador(WebDriver driver) {
+
+		WebElement menuCadastros = driver.findElement(By.xpath("//td[@onmouseup='cmItemMouseUp (this,4)']"));
+		menuCadastros.click();
 		
+		WebElement subMenuIndicador = driver.findElement(By.xpath(".//*[@id='indicadoresMenu']/td[2]"));
+		subMenuIndicador.click();
 	}
 
 }
