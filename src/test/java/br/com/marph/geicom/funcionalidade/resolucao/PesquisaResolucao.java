@@ -24,10 +24,10 @@ public class PesquisaResolucao {
 		WebElement botaoPesquisar = driver.findElement(By.id("btnPesquisar"));
 		botaoPesquisar.click();
 
-		assertEquals(numeroResolucao, driver.findElement(By.xpath(".//*[@id='rowId461']/td[1]")).getText());
+		assertEquals(numeroResolucao, driver.findElement(By.xpath(".//*[@id='rowId469']/td[1]")).getText());
 																	
 
-		WebElement selecionarResolucao = driver.findElement(By.xpath(".//*[@id='rowId461']/td[1]"));
+		WebElement selecionarResolucao = driver.findElement(By.xpath(".//*[@id='rowId469']/td[1]"));
 		selecionarResolucao.click();
 
 	}

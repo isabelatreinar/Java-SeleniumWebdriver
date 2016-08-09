@@ -25,7 +25,7 @@ public class CadastroResolucao {
 	}
 	/*
 	 * @After public void driverClose(){ driver.quit(); }
-	 */
+//	 */
 
 	@Test
 	public void abreMenu() throws AWTException, InterruptedException {
@@ -36,27 +36,31 @@ public class CadastroResolucao {
 
 		Menus.menuResolucao(driver);
 
-//		PesquisaResolucao pesquisa = new PesquisaResolucao(driver);
-//		pesquisa.parametrosPesquisa();
-//		Thread.sleep(3000);
+		PesquisaResolucao pesquisa = new PesquisaResolucao(driver);
+		pesquisa.parametrosPesquisa();
+		Thread.sleep(3000);
 
-		CadastroAbaResolucao resolucao = new CadastroAbaResolucao(driver);
-		resolucao.abaResolucao();
-
-		CadastroAbaBeneficiario beneficiario = new CadastroAbaBeneficiario(driver);
-		beneficiario.abaBeneficiarios();
-
-		CadastroAbaIndicadores indicadores = new CadastroAbaIndicadores(driver);
-		indicadores.abaIndicadores();
-
-		CadastroAbaPeriodos periodos = new CadastroAbaPeriodos(driver);
-		periodos.abaPeriodos();
-
-		CadastroAbaCronograma cronograma = new CadastroAbaCronograma(driver);
-		cronograma.abaCronograma();
-
-		CadastroAbaIndicXConograma abaIndicxCrono = new CadastroAbaIndicXConograma(driver);
-		abaIndicxCrono.associarIndicadoresCronograma();
+//		CadastroAbaResolucao resolucao = new CadastroAbaResolucao(driver);
+//		resolucao.abaResolucao();
+//
+//		CadastroAbaBeneficiario beneficiario = new CadastroAbaBeneficiario(driver);
+//		beneficiario.abaBeneficiarios();
+//
+//		CadastroAbaIndicadores indicadores = new CadastroAbaIndicadores(driver);
+//		indicadores.abaIndicadores();
+//
+//		CadastroAbaPeriodos periodos = new CadastroAbaPeriodos(driver);
+//		periodos.abaPeriodos();
+//
+//		CadastroAbaCronograma cronograma = new CadastroAbaCronograma(driver);
+//		cronograma.abaCronograma();
+//
+//		CadastroAbaIndicXConograma abaIndicXCrono = new CadastroAbaIndicXConograma(driver);
+//		abaIndicXCrono.associarIndicadoresCronograma();
+		
+		CadastroAbaModeloXBeneficiario abaModeloXCronograma = new CadastroAbaModeloXBeneficiario(driver);
+		abaModeloXCronograma.associarModeloBeneficiario();
+		
 	}
 
 }
