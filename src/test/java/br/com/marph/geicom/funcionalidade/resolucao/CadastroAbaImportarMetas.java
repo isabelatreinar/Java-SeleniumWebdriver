@@ -14,7 +14,7 @@ public class CadastroAbaImportarMetas {
 		this.driver = driver;
 	}
 
-	public void importarMetas() {
+	public void importarMetas() throws InterruptedException {
 
 		WebElement importarPlanilha = driver.findElement(By.id("buttonImportarPlanilha"));
 		importarPlanilha.click();
@@ -27,6 +27,13 @@ public class CadastroAbaImportarMetas {
 		} else {
 			System.out.println("Arquivo não encontrado!!");
 		}
+
+		WebElement importar = driver.findElement(By.id("buttonImportar"));
+		importar.click();
+		Thread.sleep(5000);
+
+		WebElement proximo = driver.findElement(By.id("btnProximo"));
+		proximo.click();
 
 	}
 }

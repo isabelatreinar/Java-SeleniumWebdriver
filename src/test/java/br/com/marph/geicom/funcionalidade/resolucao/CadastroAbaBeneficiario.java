@@ -20,7 +20,7 @@ public class CadastroAbaBeneficiario {
 		WebElement importarPlanilha = driver.findElement(By.id("buttonImportarPlanilha"));
 		importarPlanilha.click();
 
-		File planilha = new File("./data/Geicom/beneficiarioExport.xls");
+		File planilha = new File("./data/Geicom/beneficiarioExport.xlsx");
 
 		// TODO substituir por um Assert
 		if (planilha.exists()) {
