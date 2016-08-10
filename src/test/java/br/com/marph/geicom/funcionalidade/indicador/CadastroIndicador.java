@@ -14,12 +14,13 @@ import br.com.marph.geicom.util.Menus;
 public class CadastroIndicador {
 
 	private WebDriver driver;
+	
 
 	@Before
 	public void startUp() {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 
 	}
 
@@ -39,6 +40,13 @@ public class CadastroIndicador {
 		
 		CadastroTelaIndicador indicador = new CadastroTelaIndicador(driver);
 		indicador.cadastrarTelaIndicador();
+		Thread.sleep(5000);
+		
+		CadastroTelaVariaveis variaveis = new CadastroTelaVariaveis(driver);
+		variaveis.cadastrarVariaveis();
+		
+		CadastroTelaFormula formula = new CadastroTelaFormula(driver);
+		formula.cadastrarFormula();
 
 	}
 }

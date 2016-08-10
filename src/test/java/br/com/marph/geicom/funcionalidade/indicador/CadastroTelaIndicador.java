@@ -13,7 +13,7 @@ public class CadastroTelaIndicador {
 	private String polari = "Quanto maio";
 	private String medMovel = "12";
 	private String medDefasagem = "12";
-	private String indicador = "Taxa de Adesão";
+	private String indicador = "Taxa de Adesao";
 	private String fonte = "Estadual";
 	private String program = "Samu";
 	private String desc = "Teste";
@@ -58,7 +58,7 @@ public class CadastroTelaIndicador {
 		selecionarPolaridade.sendKeys(polari);
 		selecionarPolaridade.sendKeys(Keys.ENTER);
 
-		// Meses da média móvel
+		// Meses da mï¿½dia mï¿½vel
 		WebElement mediaMovel = driver.findElement(By.id("mesesDaMediaMovel"));
 		mediaMovel.click();
 		mediaMovel.sendKeys(medMovel);
@@ -88,7 +88,7 @@ public class CadastroTelaIndicador {
 		selecionarPrograma.sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		
-		// Descrição
+		// Descriï¿½ï¿½o
 		WebElement descricao = driver.findElement(By.id("descricao"));
 		descricao.click();
 		descricao.sendKeys(desc);
@@ -122,7 +122,7 @@ public class CadastroTelaIndicador {
 		percentMaiorCem.click();
 		percentMaiorCem.sendKeys(percent );
 		
-		//Avançar para aba de Variáveis
+		//Avanï¿½ar para aba de Variï¿½veis
 		WebElement avancar = driver.findElement(By.id("btnSalvar1"));
 		avancar.click();
 
