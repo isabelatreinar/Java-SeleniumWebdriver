@@ -34,6 +34,11 @@ wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttonImportar")))
 
 new Actions(driver).moveToElement(element).perform();
 --------------------------
+assertEquals(nome, driver.findElement(By.id("name_rg_display_section")).getText());
+assertEquals("Email: " + email, driver.findElement(By.id("email_rg_display_section")).getText());
+assertEquals("Telefone: " + telefone, driver.findElement(By.id("phone_rg_display_section")).getText());
+
+-----------------------------
 
 import static org.junit.Assert.*;
 -----------------------------

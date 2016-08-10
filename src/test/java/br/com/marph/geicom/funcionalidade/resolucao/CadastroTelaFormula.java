@@ -1,4 +1,4 @@
-package br.com.marph.geicom.funcionalidade.indicador;
+package br.com.marph.geicom.funcionalidade.resolucao;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

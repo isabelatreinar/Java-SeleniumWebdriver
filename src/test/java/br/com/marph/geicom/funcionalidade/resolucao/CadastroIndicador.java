@@ -1,4 +1,4 @@
-package br.com.marph.geicom.funcionalidade.indicador;
+package br.com.marph.geicom.funcionalidade.resolucao;
 
 import java.util.concurrent.TimeUnit;
 
