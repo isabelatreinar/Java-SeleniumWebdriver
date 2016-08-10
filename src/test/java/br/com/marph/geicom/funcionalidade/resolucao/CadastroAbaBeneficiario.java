@@ -11,6 +11,7 @@ public class CadastroAbaBeneficiario {
 
 	private WebDriver driver;
 
+	//contrutor
 	public CadastroAbaBeneficiario(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -20,9 +21,11 @@ public class CadastroAbaBeneficiario {
 		WebElement importarPlanilha = driver.findElement(By.id("buttonImportarPlanilha"));
 		importarPlanilha.click();
 
+		//caminho onde está a planilha para importação - este caminho é da pasta data no projeto TesteAutomatizado aqui no eclipse
 		File planilha = new File("./data/Geicom/beneficiarioExport.xlsx");
 
 		// TODO substituir por um Assert
+		//Verificação se a planilha está na pasta
 		if (planilha.exists()) {
 			WebElement selecionarArquivo = driver.findElement(By.id("uploadBeneficiariosContemplados"));
 			selecionarArquivo.sendKeys(planilha.getAbsolutePath());

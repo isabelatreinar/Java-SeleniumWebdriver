@@ -4,7 +4,7 @@ public interface IConstante {
 	
 	interface Parametro {
 		Long DEFAULT_WAIT = 5L;
-		Long LONG_WAIT = 30L;		
+		Long LONG_WAIT = 10L;		
 	}
 	
 	interface Url {
@@ -16,6 +16,18 @@ public interface IConstante {
 		String BOTAO_ACESSAR = "btnAcessar";
 		String BOTAO_CONFIRMAR =  "confirmarDados";
 		String BOTAO_ACESSAR_PERFIL = "acessarSistema";
+	}
+	
+	interface parametrosIndicador{
+		
+		String OFICIAL = "oficial";
+		String DECLARATORIO = "Declaratório";
+		String FINALISTICO = "Finalístico";
+		String PROCESSUAL = "Processual";
+		String MAIOR_MELHOR = "maior";
+		String MENOR_MELHOR = "menor";
+		String PROGRAMA = "Samu";
+		
 	}
 
 }

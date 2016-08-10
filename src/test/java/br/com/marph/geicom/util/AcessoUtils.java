@@ -14,15 +14,15 @@ public class AcessoUtils {
 
 	public WebElement driver;
 
-	public static void acessarUrl(WebDriver driver) {
-		driver.get("http://172.16.10.115:8081/public/login");
-
-	}
+//	public static void acessarUrl(WebDriver driver) {
+//		driver.get("http://172.16.10.115:8081/public/login");
+//
+//	}
 
 	public static void idClick(WebDriver driver, String... ids) {
-	//	WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
+		//WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
 		for (String idElemento : ids) {
-		//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idElemento)));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idElemento)));
 			driver.findElement(By.id(idElemento)).click();
 		}
 	}

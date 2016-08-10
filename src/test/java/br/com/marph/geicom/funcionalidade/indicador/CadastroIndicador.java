@@ -35,7 +35,8 @@ public class CadastroIndicador {
 
 		AcessoUtils.acessarSistema(driver);
 
-		Menus.menuIndicador(driver);
+		Menus.MenuCadastros(driver);
+		Menus.subMenuIndicador(driver);
 
 		CadastroTelaIndicador indicador = new CadastroTelaIndicador(driver);
 		indicador.cadastrarTelaIndicador();

@@ -28,13 +28,14 @@ public class CadastroResolucao {
 	 */
 
 	@Test
-	public void abreMenu() throws AWTException, InterruptedException {
+	public void cadastroResolucao() throws AWTException, InterruptedException {
 
 		driver.get(IConstante.Url.LOGIN);
 
 		AcessoUtils.acessarSistema(driver);
 
-		Menus.menuResolucao(driver);
+		Menus.MenuCadastros(driver);
+		Menus.subMenuResolucao(driver);
 
 		// PesquisaResolucao pesquisa = new PesquisaResolucao(driver);
 		// pesquisa.parametrosPesquisa();

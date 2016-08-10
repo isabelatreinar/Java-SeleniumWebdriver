@@ -23,8 +23,10 @@ public class CadastroAbaResolucao {
 		String numeroResolucao = "1235";
 		String tempoVigencia = "12";
 
+		WebElement novaResolucao = driver.findElement(By.id("btnNovaResolucao"));
+		novaResolucao.click();
+		
 		// Preencher campo Programa/Outros
-		driver.findElement(By.id("btnNovaResolucao")).click();
 		WebElement programa = driver.findElement(By.xpath(".//*[@id='programa_chosen']/a"));
 		programa.click();
 		programa.sendKeys(nomePrograma);

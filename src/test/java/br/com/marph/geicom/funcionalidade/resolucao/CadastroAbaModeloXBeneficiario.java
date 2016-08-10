@@ -3,10 +3,13 @@ package br.com.marph.geicom.funcionalidade.resolucao;
 import java.awt.AWTException;
 import java.io.File;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import br.com.marph.geicom.enums.EnumMensagensLog;
 
 public class CadastroAbaModeloXBeneficiario {
 
@@ -39,7 +42,7 @@ public class CadastroAbaModeloXBeneficiario {
 			WebElement selecionarPlanilha = driver.findElement(By.id("uploadBeneficiariosContemplados"));
 			selecionarPlanilha.sendKeys(planilha.getAbsolutePath());
 		} else {
-			System.out.println("Arquivo n„o encontrado!");
+			System.out.println("Arquivo n√£o encontrado!");
 		}
 
 		WebElement importar = driver.findElement(By.id("buttonImportar"));
