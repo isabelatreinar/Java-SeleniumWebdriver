@@ -3,13 +3,10 @@ package br.com.marph.geicom.funcionalidade.resolucao;
 import java.awt.AWTException;
 import java.io.File;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import br.com.marph.geicom.enums.EnumMensagensLog;
 
 public class CadastroAbaModeloXBeneficiario {
 

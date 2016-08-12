@@ -1,12 +1,10 @@
 package br.com.marph.geicom.funcionalidade.indicador;
 
+import static org.junit.Assert.assertEquals;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import br.com.marph.geicom.util.IConstante;
-
-import static org.junit.Assert.*;
 
 public class CadastroTelaFormula {
 
@@ -39,7 +37,7 @@ public class CadastroTelaFormula {
 		// apresentado após o cadastro tem o mesmo nome inserido no cadastro
 		assertEquals(indicador.fonte, driver.findElement(By.id("nomeFonte")).getText());
 		assertEquals(indicador.nome, driver.findElement(By.id("nomeIndicador")).getText());
-		assertEquals(IConstante.parametrosIndicador.PROGRAMA, driver.findElement(By.id("programa")).getText());
+		assertEquals(indicador.nomePrograma, driver.findElement(By.id("programa")).getText());
 		assertEquals(indicador.desc, driver.findElement(By.id("descricao")).getText());
 
 	}

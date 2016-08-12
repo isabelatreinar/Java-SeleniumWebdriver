@@ -5,22 +5,24 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.marph.geicom.util.IConstante;
-
 public class CadastroTelaIndicador {
-	
+
 	public WebDriver driver;
-	public String medMovel = "12";
-	public String medDefasagem = "12";
-	public String nome = "Taxa de Adesao";
-	public String fonte = "Estadual";
-	public String desc = "Teste";
-	public String opDispensa = "Outro";
-	public String percentDispensa = "8000";
-	public String maiorCem = "Outro";
-	public String percent = "10000";
-	public String opPolaridadeMenor = "Outro";
-	public String percentPolaridadeMenor = "5000";
+	public final String medMovel = "12";
+	public final String medDefasagem = "12";
+	public final String nome = "Taxa de Adesao";
+	public final String fonte = "Estadual";
+	public final String desc = "Teste";
+	public final String opDispensa = "Outro";
+	public final String percentDispensa = "8000";
+	public final String maiorCem = "Outro";
+	public final String percent = "10000";
+	public final String opPolaridadeMenor = "Outro";
+	public final String percentPolaridadeMenor = "5000";
+	public final String tpFonte = "Declaratório";
+	public final String tipoIndic = "Finalístico";
+	public final String tipoPolaridade = "menor";
+	public final String nomePrograma = "Samu";
 
 	public CadastroTelaIndicador(WebDriver driver) {
 		this.driver = driver;
@@ -37,15 +39,17 @@ public class CadastroTelaIndicador {
 
 		WebElement selecionarTipoInd = driver.findElement(By.xpath(".//*[@id='tipoIndicador_chosen']/div/div/input"));
 		selecionarTipoInd.click();
-		selecionarTipoInd.sendKeys(IConstante.parametrosIndicador.FINALISTICO);
+		selecionarTipoInd.sendKeys(tipoIndic);
 		selecionarTipoInd.sendKeys(Keys.ENTER);
-				
-		// Preenchimento de campos para TIPO DE INDICADOR FINALISTICO - se for processual comentar as linhas de código abaixo até a linha 57
+
+		// Preenchimento de campos para TIPO DE INDICADOR FINALISTICO - se for
+		// processual comentar as linhas de código abaixo até a linha 57
 		// Indicador Dispensado?
 		WebElement indicadorDispensado = driver.findElement(By.id("percentualIndicadorDispensado_chosen"));
 		indicadorDispensado.click();
 
-		WebElement opcaoDispensa = driver.findElement(By.xpath(".//*[@id='percentualIndicadorDispensado_chosen']/div/div/input"));
+		WebElement opcaoDispensa = driver
+				.findElement(By.xpath(".//*[@id='percentualIndicadorDispensado_chosen']/div/div/input"));
 		opcaoDispensa.click();
 		opcaoDispensa.sendKeys(opDispensa);
 		opcaoDispensa.sendKeys(Keys.TAB);
@@ -62,7 +66,7 @@ public class CadastroTelaIndicador {
 
 		WebElement selecionarTipoFonte = driver.findElement(By.xpath(".//*[@id='tipoFonte_chosen']/div/div/input"));
 		selecionarTipoFonte.click();
-		selecionarTipoFonte.sendKeys(IConstante.parametrosIndicador.OFICIAL);
+		selecionarTipoFonte.sendKeys(tpFonte);
 		selecionarTipoFonte.sendKeys(Keys.ENTER);
 
 		// Tipo Polaridade
@@ -71,20 +75,24 @@ public class CadastroTelaIndicador {
 
 		WebElement selecionarPolaridade = driver.findElement(By.xpath(".//*[@id='polaridade_chosen']/div/div/input"));
 		selecionarPolaridade.click();
-		selecionarPolaridade.sendKeys(IConstante.parametrosIndicador.MENOR_MELHOR);
+		selecionarPolaridade.sendKeys(tipoPolaridade);
 		selecionarPolaridade.sendKeys(Keys.ENTER);
 
-		// Preenchimento de campos para polaridade QUANTO MENOR MELHOR, se for Maior Melhor, comentar as linhas de código abaixo, até a linha 92:
-		WebElement polaridadeMenorMelhor = driver.findElement(By.id("percentualQuandoPolaridadeMenorMelhorEValorZero_chosen"));
+		// Preenchimento de campos para polaridade QUANTO MENOR MELHOR, se for
+		// Maior Melhor, comentar as linhas de código abaixo, até a linha 92:
+		WebElement polaridadeMenorMelhor = driver
+				.findElement(By.id("percentualQuandoPolaridadeMenorMelhorEValorZero_chosen"));
 		polaridadeMenorMelhor.click();
 
-		WebElement opcaoPolaridadeMenor = driver.findElement(By.xpath(".//*[@id='percentualQuandoPolaridadeMenorMelhorEValorZero_chosen']/div/div/input"));
+		WebElement opcaoPolaridadeMenor = driver.findElement(
+				By.xpath(".//*[@id='percentualQuandoPolaridadeMenorMelhorEValorZero_chosen']/div/div/input"));
 		opcaoPolaridadeMenor.click();
 		opcaoPolaridadeMenor.sendKeys(opPolaridadeMenor);
 		opcaoPolaridadeMenor.sendKeys(Keys.TAB);
 
 		// Informar o percentual de cumprimento para indicador dispensado
-		WebElement percentualPolaridadeMenor = driver.findElement(By.id("percentualCumprimentoQuandoPolaridadeMenorMelhorEValorZero"));
+		WebElement percentualPolaridadeMenor = driver
+				.findElement(By.id("percentualCumprimentoQuandoPolaridadeMenorMelhorEValorZero"));
 		percentualPolaridadeMenor.click();
 		percentualPolaridadeMenor.sendKeys(percentPolaridadeMenor);
 		Thread.sleep(2000);
@@ -115,7 +123,7 @@ public class CadastroTelaIndicador {
 
 		WebElement selecionarPrograma = driver.findElement(By.xpath(".//*[@id='programa_chosen']/div/div/input"));
 		selecionarPrograma.click();
-		selecionarPrograma.sendKeys(IConstante.parametrosIndicador.PROGRAMA);
+		selecionarPrograma.sendKeys(nomePrograma);
 		selecionarPrograma.sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 

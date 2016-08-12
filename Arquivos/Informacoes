@@ -29,6 +29,12 @@ Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 			    .ignoring(NoSuchElementException.class);
 USAR:
 
+//      WebDriverWait wait = new WebDriverWait(driver, 5);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("numero")));
+//		WebElement btnProfile = driver.findElement(By.id("numero"));
+//		btnProfile.click();
+//		btnProfile.sendKeys(numeroBase);
+
 wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttonImportar")));
 -----------------------
 

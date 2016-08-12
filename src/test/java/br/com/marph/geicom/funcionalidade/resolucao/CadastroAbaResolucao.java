@@ -11,6 +11,10 @@ public class CadastroAbaResolucao {
 
 	private WebDriver driver;
 
+	private final String nomePrograma = "Samu";
+	private final String numeroResolucao = "1235";
+	private final String tempoVigencia = "12";
+	
 	public CadastroAbaResolucao(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -19,9 +23,6 @@ public class CadastroAbaResolucao {
 
 		//WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
 
-		String nomePrograma = "Samu";
-		String numeroResolucao = "1235";
-		String tempoVigencia = "12";
 
 		WebElement novaResolucao = driver.findElement(By.id("btnNovaResolucao"));
 		novaResolucao.click();
