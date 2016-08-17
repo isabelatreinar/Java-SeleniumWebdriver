@@ -1,12 +1,22 @@
 package br.com.marph.geicom.funcionalidade.resolucao;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import br.com.marph.geicom.util.SeleniumUtil;
 
 public class CadastroAbaIndicadores {
 
+	private static final String BTN_PROXIMO = "btnProximo";
+	private static final String SALVAR_INDICADOR = ".//*[@id='headingNovo']/ul/li[1]/a";
+	private static final String PESO = ".//*[@id='tabelaIndicadoresNovo']/div[2]/div[4]/input";
+	private static final String PONTO_CORTE = ".//*[@id='tabelaIndicadoresNovo']/div[2]/div[3]/input";
+	private static final String SELECIONAR_INDICADOR = ".//*[@id='ui-id-2']";
+	private static final String INDICADOR = "//*[@data-label-field='nomeIndicador']";
+	private static final String BTN_ADC_INDIC_FINALISTICO = ".//*[@id='collapseNovo']/div/ul/li[1]/a";
+	private static final String NOME_MODELO = "nome";
+	private static final String CADASTRAR_MODELO = "criar";
 	private WebDriver driver;
+	private SeleniumUtil seleniumUtil;
 	private String modelo = "Primeiro";
 	private String nomeIndic = "dias";
 	private String ptcorte = "5000";
@@ -28,34 +38,29 @@ public class CadastroAbaIndicadores {
 
 		// driver.findElement(By.xpath(".//*[@id='divBotoesAtalho']/ul")).click();
 
-		WebElement criarModelo = driver.findElement(By.id("criar"));
-		criarModelo.click();
+		seleniumUtil = SeleniumUtil.getInstance();
 
-		WebElement nomeModelo = driver.findElement(By.id("nome"));
-		nomeModelo.click();
-		nomeModelo.sendKeys(modelo);
+		seleniumUtil.clickElementId(driver, CADASTRAR_MODELO);
 
-		WebElement adcIndFinalistico = driver.findElement(By.xpath(".//*[@id='collapseNovo']/div/ul/li[1]/a"));
-		adcIndFinalistico.click();
+		seleniumUtil.clickElementId(driver, NOME_MODELO);
+		seleniumUtil.sendKeysId(driver, NOME_MODELO, modelo);
 
-		WebElement nomeIndicador = driver.findElement(By.xpath("//*[@data-label-field='nomeIndicador']"));
-		nomeIndicador.sendKeys(nomeIndic);
+		seleniumUtil.clickElementXpath(driver, BTN_ADC_INDIC_FINALISTICO);
 
-		WebElement selecionarIndicador = driver.findElement(By.xpath(".//*[@id='ui-id-2']"));
-		selecionarIndicador.click();
+		seleniumUtil.clickElementXpath(driver, INDICADOR);
+		seleniumUtil.sendKeysXpath(driver, INDICADOR, nomeIndic);
+		seleniumUtil.clickElementXpath(driver, SELECIONAR_INDICADOR);
 
-		WebElement pontoCorte = driver.findElement(By.xpath(".//*[@id='tabelaIndicadoresNovo']/div[2]/div[3]/input"));
-		pontoCorte.sendKeys(ptcorte);
+		seleniumUtil.clickElementXpath(driver, PONTO_CORTE);
+		seleniumUtil.sendKeysXpath(driver, PONTO_CORTE, ptcorte);
 
-		WebElement peso = driver.findElement(By.xpath(".//*[@id='tabelaIndicadoresNovo']/div[2]/div[4]/input"));
-		peso.sendKeys(pesoInd);
+		seleniumUtil.clickElementXpath(driver, PESO);
+		seleniumUtil.sendKeysXpath(driver, PESO, pesoInd);
 
-		WebElement salvarIndicador = driver.findElement(By.xpath(".//*[@id='headingNovo']/ul/li[1]/a"));
-		salvarIndicador.click();
+		seleniumUtil.clickElementXpath(driver, SALVAR_INDICADOR);
 		Thread.sleep(8000);
 
-		WebElement proximo = driver.findElement(By.id("btnProximo"));
-		proximo.click();
+		seleniumUtil.clickElementId(driver, BTN_PROXIMO);
 
 	}
 }

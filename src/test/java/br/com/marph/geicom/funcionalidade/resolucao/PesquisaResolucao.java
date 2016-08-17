@@ -4,46 +4,50 @@ import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import br.com.marph.geicom.util.SeleniumUtil;
 
 public class PesquisaResolucao {
 
+	private static final String REGISTRO_RESOLUCAO = ".//*[@id='rowId337']/td[1]";
+	private static final String BTN_PESQUISAR = "btnPesquisar";
+	private static final String NUMERO = "numero";
 	private WebDriver driver;
-	String numeroResolucao = "1235";
+	private SeleniumUtil seleniumUtil;
+	private String numeroResolucao = "1235";
 
 	public PesquisaResolucao(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public void parametrosPesquisa() {
+	public void parametrosPesquisa() throws InterruptedException {
 
-		WebElement resolucao = driver.findElement(By.id("numero"));
-		resolucao.click();
-		resolucao.sendKeys(numeroResolucao);
+		seleniumUtil = SeleniumUtil.getInstance();
 
-		WebElement botaoPesquisar = driver.findElement(By.id("btnPesquisar"));
-		botaoPesquisar.click();
+		seleniumUtil.clickElementId(driver, NUMERO);
+		seleniumUtil.sendKeysId(driver, NUMERO, numeroResolucao);
 
-		assertEquals(numeroResolucao, driver.findElement(By.xpath(".//*[@id='rowId469']/td[1]")).getText());
-																	
+		seleniumUtil.clickElementId(driver, BTN_PESQUISAR);
+		Thread.sleep(2000);
+		
+		assertEquals(numeroResolucao, driver.findElement(By.xpath(REGISTRO_RESOLUCAO)).getText());
 
-		WebElement selecionarResolucao = driver.findElement(By.xpath(".//*[@id='rowId469']/td[1]"));
-		selecionarResolucao.click();
+		seleniumUtil.clickElementXpath(driver, REGISTRO_RESOLUCAO);
 
 	}
 
-	/*
-	 * @Before public void startUp() { driver = new FirefoxDriver(); }
-	 * 
-	 * @Test public void pesquisarResolucao() {
-	 * 
-	 * driver.get(IConstante.Url.LOGIN);
-	 * 
-	 * AcessoUtils.acessarSistema(driver);
-	 * 
-	 * Menus.menuResolucao(driver);
-	 * 
-	 * }
-	 */
-
 }
+
+/*
+ * @Before public void startUp() { driver = new FirefoxDriver(); }
+ * 
+ * @Test public void pesquisarResolucao() {
+ * 
+ * driver.get(IConstante.Url.LOGIN);
+ * 
+ * AcessoUtils.acessarSistema(driver);
+ * 
+ * Menus.menuResolucao(driver);
+ * 
+ * }
+ */

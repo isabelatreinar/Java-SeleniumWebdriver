@@ -5,77 +5,92 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.marph.geicom.util.AcessoUtils;
+import br.com.marph.geicom.util.SeleniumUtil;
 
 public class CadastroAbaResolucao {
 
-	private WebDriver driver;
+	private static final String DESCRICAO = "descricao";
+	private static final String RECURSO_FEDERAL = "recursoFederal";
+	private static final String RECURSO_ESTADUAL = "recursoEstadual";
+	private static final String RECURSO_MUNICIPAL = "recursoMunicipal";
+	private static final String BTN_PROXIMO = "btnProximo";
+	private static final String BTN_SALVAR = "btnSalvar1";
+	private static final String TEMPO_VIGENCIA = "tempoVigencia";
+	private static final String SELECIONAR_BASE = "//*[@id='termosBaseLegal_chosen']/div/ul/li[4]";
+	private static final String BASE_LEGAL = ".//*[@id='termosBaseLegal_chosen']/ul";
+	private static final String NUMERO_RESOLUCAO = ".//*[@id='baseLegal_chosen']/a";
+	private static final String PROGRAMA = ".//*[@id='programa_chosen']/a";
+	private static final String BTN_NOVA_RESOLUCAO = "btnNovaResolucao";
 
-	private final String nomePrograma = "Samu";
-	private final String numeroResolucao = "1235";
-	private final String tempoVigencia = "12";
-	
+	private WebDriver driver;
+	SeleniumUtil seleniumUtil;
+	private String nomePrograma = "Samu";
+	private String numeroResolucao = "1235";
+	private String tempoVigencia = "12";
+	private String descr = "Teste";
+
 	public CadastroAbaResolucao(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public void abaResolucao() throws InterruptedException {
-
-		//WebDriverWait wait = new WebDriverWait(driver, IConstante.Parametro.DEFAULT_WAIT);
-
-
-		WebElement novaResolucao = driver.findElement(By.id("btnNovaResolucao"));
-		novaResolucao.click();
 		
+		// instanciando a classe SeleniumUtil
+		seleniumUtil = SeleniumUtil.getInstance();
+
+		seleniumUtil.clickElementId(driver, BTN_NOVA_RESOLUCAO);
+
 		// Preencher campo Programa/Outros
-		WebElement programa = driver.findElement(By.xpath(".//*[@id='programa_chosen']/a"));
-		programa.click();
-		programa.sendKeys(nomePrograma);
-		programa.sendKeys(Keys.TAB);
+		seleniumUtil.clickElementXpath(driver, PROGRAMA);
+		seleniumUtil.sendKeysXpath(driver, PROGRAMA, nomePrograma);
+		driver.findElement(By.xpath(PROGRAMA)).sendKeys(Keys.TAB);
 
 		// Selecionar Número da Resolução
-		WebElement resolucao = driver.findElement(By.xpath(".//*[@id='baseLegal_chosen']/a"));
-		resolucao.click();
-		resolucao.sendKeys(numeroResolucao);
-		resolucao.sendKeys(Keys.TAB);
-
-		// Selecionar Base Legal
-
-		//espera até que o nome do campo de base legal apareça na tela, para poder selecionar
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("termosBaseLegal_label")));
-		Thread.sleep(3000);
+		seleniumUtil.clickElementXpath(driver, NUMERO_RESOLUCAO);
+		seleniumUtil.sendKeysXpath(driver, NUMERO_RESOLUCAO, numeroResolucao);
+		driver.findElement(By.xpath(NUMERO_RESOLUCAO)).sendKeys(Keys.TAB);
+		Thread.sleep(2000);
 		
-		WebElement baseLegal = driver.findElement(By.xpath(".//*[@id='termosBaseLegal_chosen']/ul"));
-		baseLegal.click();
-		baseLegal.sendKeys(Keys.ENTER);
-		driver.findElement(By.xpath("//*[@id='termosBaseLegal_chosen']/div/ul/li[4]")).click();
-		baseLegal.sendKeys(Keys.TAB);
+		// Selecionar base legal
+		seleniumUtil.clickElementXpath(driver, BASE_LEGAL);
+		driver.findElement(By.xpath(BASE_LEGAL)).sendKeys(Keys.ENTER);
+		seleniumUtil.clickElementXpath(driver, SELECIONAR_BASE);
+		driver.findElement(By.xpath(BASE_LEGAL)).sendKeys(Keys.TAB);
 
 		// Preencher Tempo de Vigência
-		WebElement vigencia = driver.findElement(By.id("tempoVigencia"));
-		vigencia.sendKeys(tempoVigencia);
+		seleniumUtil.clickElementId(driver, TEMPO_VIGENCIA);
+		seleniumUtil.sendKeysId(driver, TEMPO_VIGENCIA, tempoVigencia);
+
+		// declarando variável do tipo WebElement recebendo os elementos, para
+		// fazer a comparação do if se o elemento está desabilitado (sintaxe:
+		// !elemento.isEnable)
+		// Se o recurso municipal estiver habilitado todos os outros campos
+		// estarão, por isso criei um WebElement apenas para o campo Recurso
+		// Municipal.
+		WebElement recursoMun = driver.findElement(By.id(RECURSO_MUNICIPAL));
 
 		// Verifica se campos de Recursos estão habilitados
-		WebElement recursoMun = driver.findElement(By.id("recursoMunicipal"));
-		WebElement recursoEst = driver.findElement(By.id("recursoEstadual"));
-		WebElement recursoFed = driver.findElement(By.id("recursoFederal"));
+		if (recursoMun.isEnabled()) {
+			seleniumUtil.clickElementId(driver, RECURSO_MUNICIPAL);
+			String recMunicipal = "120000";
+			seleniumUtil.sendKeysId(driver, RECURSO_MUNICIPAL, recMunicipal);
 
-		if (!recursoMun.isEnabled()) {
-			recursoMun.click();
-			recursoMun.sendKeys("120000");
+			seleniumUtil.clickElementId(driver, RECURSO_ESTADUAL);
+			String recEstadual = "140000";
+			seleniumUtil.sendKeysId(driver, RECURSO_ESTADUAL, recEstadual);
 
-			recursoEst.click();
-			recursoEst.sendKeys("140000");
+			seleniumUtil.clickElementId(driver, RECURSO_FEDERAL);
+			String recFederal = "150000";
+			seleniumUtil.sendKeysId(driver, RECURSO_FEDERAL, recFederal);
 
-			recursoFed.click();
-			recursoFed.sendKeys("150000");
 		}
 
-		WebElement descricao = driver.findElement(By.id("descricao"));
-		descricao.click();
-		descricao.sendKeys("Testeeeee");
+		// Preencher campo descrição
+		seleniumUtil.clickElementId(driver, DESCRICAO);
+		seleniumUtil.sendKeysId(driver, DESCRICAO, descr);
 
-		AcessoUtils.idClick(driver, "btnSalvar1", "btnProximo");
+		seleniumUtil.clickElementId(driver, BTN_SALVAR);
+		seleniumUtil.clickElementId(driver, BTN_PROXIMO);
 
 	}
 }

@@ -27,13 +27,13 @@ public class TesteLoginComplexo {
 	@Test
 	public void testLoginAnotai() {
 		driver.get(IConstantes.URI.LOGIN);
-		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_ACESSO);
-		seleniumUtil.buildElement(driver, getInputs());
+		seleniumUtil.clickElementId(driver, IConstantes.HtmlCommandId.BOTAO_ACESSO);
+		//seleniumUtil.sendKeysId(driver, getInputs());
 		//caso quisesse setar em apenas um campo, pode ser feito de maneira direta sem utilizar a lista
 		//seleniumUtil.buildElement(driver, IConstante.HtmlInput.SENHA);
 		//caso quisesse setar em apenas um campo passando os nomes do campo
 		//seleniumUtil.buildElement(driver, "email", "anotaai@gmail.com");NAO RECOMENDADO
-		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_LOGIN);
+		seleniumUtil.clickElementId(driver, IConstantes.HtmlCommandId.BOTAO_LOGIN);
 	}
 	
 	private List<Entry<String, String>> getInputs() {
@@ -46,8 +46,8 @@ public class TesteLoginComplexo {
 	@After
 	public void driverClose() {
 		//deslogar depois dos testes efetuados
-		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_PROFILE);
-		seleniumUtil.clickElement(driver, IConstantes.HtmlCommandId.BOTAO_SHUTDOWN);
+		seleniumUtil.clickElementId(driver, IConstantes.HtmlCommandId.BOTAO_PROFILE);
+		seleniumUtil.clickElementId(driver, IConstantes.HtmlCommandId.BOTAO_SHUTDOWN);
 		//decomentar caso queira fechar o browser quando os testes forem concuidos
 		//driver.quit();
 	}

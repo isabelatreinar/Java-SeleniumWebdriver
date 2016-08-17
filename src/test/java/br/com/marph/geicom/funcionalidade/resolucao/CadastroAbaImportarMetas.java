@@ -6,9 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import br.com.marph.geicom.util.SeleniumUtil;
+
 public class CadastroAbaImportarMetas {
 
+	private static final String BTN_PROXIMO = "btnProximo";
+	private static final String BTN_IMPORTAR = "buttonImportar";
+	private static final String BTN_IMPORTAR_PLANILHA = "buttonImportarPlanilha";
 	private WebDriver driver;
+	private SeleniumUtil seleniumUtil;
 
 	public CadastroAbaImportarMetas(WebDriver driver) {
 		this.driver = driver;
@@ -16,8 +22,9 @@ public class CadastroAbaImportarMetas {
 
 	public void importarMetas() throws InterruptedException {
 
-		WebElement importarPlanilha = driver.findElement(By.id("buttonImportarPlanilha"));
-		importarPlanilha.click();
+		seleniumUtil = SeleniumUtil.getInstance();
+
+		seleniumUtil.clickElementId(driver, BTN_IMPORTAR_PLANILHA);
 
 		File planilha = new File("./data/Geicom/importacaoMetasExport.xlsx");
 
@@ -28,12 +35,10 @@ public class CadastroAbaImportarMetas {
 			System.out.println("Arquivo não encontrado!!");
 		}
 
-		WebElement importar = driver.findElement(By.id("buttonImportar"));
-		importar.click();
+		seleniumUtil.clickElementId(driver, BTN_IMPORTAR);
 		Thread.sleep(5000);
 
-		WebElement proximo = driver.findElement(By.id("btnProximo"));
-		proximo.click();
+		seleniumUtil.clickElementId(driver, BTN_PROXIMO);
 
 	}
 }

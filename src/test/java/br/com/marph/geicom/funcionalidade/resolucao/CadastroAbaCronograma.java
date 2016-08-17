@@ -2,11 +2,24 @@ package br.com.marph.geicom.funcionalidade.resolucao;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import br.com.marph.geicom.util.SeleniumUtil;
 
 public class CadastroAbaCronograma {
 
+	private static final String BTN_PROXIMO = "btnProximo";
+	private static final String BTN_SALVAR_MODELO = ".//*[@id='accordion']/div/div[1]/ul/li[1]/a";
+	private static final String PERCENTUAL_CUSTEIO = ".//*[@class='panel-collapse collapse in']/div/div[3]/div[2]/div[5]/div/input";
+	private static final String PERCENTUAL_FIXO = ".//*[@class='panel-collapse collapse in']/div/div[3]/div[2]/div[4]/div/input";
+	private static final String VALOR_PADRAO = "//*[@class='panel-collapse collapse in']/div/div[3]/div[2]/div[3]/div/input";
+	private static final String BTN_ATUALIZAR = "//*[@class='panel-collapse collapse in']/div/div[2]/div[4]/a";
+	private static final String DATA_INICIAL = "//*[@id='dataInicial_maindiv']/div/input";
+	private static final String PERIODICIDADE = "periodicidade";
+	private static final String NUMERO_PARCELAS = "numeroParcelas";
+	private static final String NOME_MODELO = ".//*[@id='accordion']/div/div[1]/span/input";
+	private static final String BTN_CADASTRAR_CRONOGRAMA = "criarCronograma";
 	private WebDriver driver;
+	private SeleniumUtil seleniumUtil;
 	private String modelo = "Primeiro Cronograma";
 	private String parcelas = "1";
 	private String period = "1";
@@ -21,48 +34,39 @@ public class CadastroAbaCronograma {
 
 	public void abaCronograma() throws InterruptedException {
 
-		WebElement criarCronograma = driver.findElement(By.id("criarCronograma"));
-		criarCronograma.click();
+		seleniumUtil = SeleniumUtil.getInstance();
 
-		WebElement nomeModelo = driver.findElement(By.xpath(".//*[@id='accordion']/div/div[1]/span/input"));
-		nomeModelo.click();
-		nomeModelo.sendKeys(modelo);
+		seleniumUtil.clickElementId(driver, BTN_CADASTRAR_CRONOGRAMA);
 
-		WebElement numeroParcelas = driver.findElement(By.id("numeroParcelas"));
-		numeroParcelas.click();
-		numeroParcelas.sendKeys(parcelas);
+		seleniumUtil.clickElementXpath(driver, NOME_MODELO);
+		seleniumUtil.sendKeysXpath(driver, NOME_MODELO, modelo);
 
-		WebElement periodicidade = driver.findElement(By.id("periodicidade"));
-		periodicidade.click();
-		periodicidade.sendKeys(period);
+		seleniumUtil.clickElementId(driver, NUMERO_PARCELAS);
+		seleniumUtil.sendKeysId(driver, NUMERO_PARCELAS, parcelas);
 
-		WebElement dataInicial = driver.findElement(By.xpath("//*[@id='dataInicial_maindiv']/div/input"));
-		dataInicial.click();
-		dataInicial.clear();
-		dataInicial.sendKeys(dataIni);
+		seleniumUtil.clickElementId(driver, PERIODICIDADE);
+		seleniumUtil.sendKeysId(driver, PERIODICIDADE, period);
 
-		WebElement atualizar = driver.findElement(By.xpath("//*[@class='panel-collapse collapse in']/div/div[2]/div[4]/a"));
-		atualizar.click();
+		seleniumUtil.clickElementXpath(driver, DATA_INICIAL);
+		driver.findElement(By.xpath(DATA_INICIAL)).clear();
+		seleniumUtil.sendKeysXpath(driver, DATA_INICIAL, dataIni);
+
+		seleniumUtil.clickElementXpath(driver, BTN_ATUALIZAR);
 		Thread.sleep(3000);
 
-		WebElement valorPadrao = driver.findElement(By.xpath("//*[@class='panel-collapse collapse in']/div/div[3]/div[2]/div[3]/div/input"));
-		valorPadrao.click();
-		valorPadrao.sendKeys(valorParcela);
+		seleniumUtil.clickElementXpath(driver, VALOR_PADRAO);
+		seleniumUtil.sendKeysXpath(driver, VALOR_PADRAO, valorParcela);
 
-		WebElement percentualFixo = driver.findElement(By.xpath(".//*[@class='panel-collapse collapse in']/div/div[3]/div[2]/div[4]/div/input"));
-		percentualFixo.click();
-		percentualFixo.sendKeys(percentFixo);
+		seleniumUtil.clickElementXpath(driver, PERCENTUAL_FIXO);
+		seleniumUtil.sendKeysXpath(driver, PERCENTUAL_FIXO, percentFixo);
 
-		WebElement percentualCusteio = driver.findElement(By.xpath(".//*[@class='panel-collapse collapse in']/div/div[3]/div[2]/div[5]/div/input"));
-		percentualCusteio.click();
-		percentualCusteio.sendKeys(percentCusteio);
-		
-		WebElement salvarModelo = driver.findElement(By.xpath(".//*[@id='accordion']/div/div[1]/ul/li[1]/a"));
-		salvarModelo.click();
+		seleniumUtil.clickElementXpath(driver, PERCENTUAL_CUSTEIO);
+		seleniumUtil.sendKeysXpath(driver, PERCENTUAL_CUSTEIO, percentCusteio);
+
+		seleniumUtil.clickElementXpath(driver, BTN_SALVAR_MODELO);
 		Thread.sleep(8000);
-		
-		WebElement proximo = driver.findElement(By.id("btnProximo"));
-		proximo.click();
+
+		seleniumUtil.clickElementId(driver, BTN_PROXIMO);
 
 	}
 }

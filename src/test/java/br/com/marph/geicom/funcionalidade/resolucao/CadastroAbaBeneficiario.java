@@ -7,38 +7,46 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import br.com.marph.geicom.util.SeleniumUtil;
+
 public class CadastroAbaBeneficiario {
 
+	private static final String BTN_PROXIMO = "btnProximo";
+	private static final String BTN_IMPORTAR = "buttonImportar";
+	 private static final String SELECIONAR_ARQUIVO = "uploadBeneficiariosContemplados";
+	private static final String BTN_IMPORTAR_PLANILHA = "buttonImportarPlanilha";
 	private WebDriver driver;
+	private SeleniumUtil seleniumUtil;
 
-	//contrutor
+	// contrutor
 	public CadastroAbaBeneficiario(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public void abaBeneficiarios() throws AWTException, InterruptedException {
 
-		WebElement importarPlanilha = driver.findElement(By.id("buttonImportarPlanilha"));
-		importarPlanilha.click();
+		seleniumUtil = SeleniumUtil.getInstance();
 
-		//caminho onde está a planilha para importação - este caminho é da pasta data no projeto TesteAutomatizado aqui no eclipse
+		seleniumUtil.clickElementId(driver, BTN_IMPORTAR_PLANILHA);
+
+		// caminho onde está a planilha para importação - este caminho é da
+		// pasta data no projeto TesteAutomatizado aqui no eclipse
 		File planilha = new File("./data/Geicom/beneficiarioExport.xlsx");
 
 		// TODO substituir por um Assert
-		//Verificação se a planilha está na pasta
+		// Verificação se a planilha está na pasta
 		if (planilha.exists()) {
-			WebElement selecionarArquivo = driver.findElement(By.id("uploadBeneficiariosContemplados"));
+			WebElement selecionarArquivo = driver.findElement(By.id(SELECIONAR_ARQUIVO));
 			selecionarArquivo.sendKeys(planilha.getAbsolutePath());
+
 		} else {
-			System.out.println("Arquivo não encontrado!");
+			System.out.println("Arquivo nao encontrado!");
 		}
 
-		WebElement botaoImportar = driver.findElement(By.id("buttonImportar"));
-		botaoImportar.click();
+		seleniumUtil.clickElementId(driver, BTN_IMPORTAR);
 		Thread.sleep(8000);
 
-		WebElement proximo = driver.findElement(By.id("btnProximo"));
-		proximo.click();
+		seleniumUtil.clickElementId(driver, BTN_PROXIMO);
 
 		// objeto que guarda na memória (ctrl+c) o caminho
 		// C:\\GEICOM\\beneficiarioExport

@@ -37,9 +37,9 @@ public class CadastroResolucao {
 		Menus.MenuCadastros(driver);
 		Menus.subMenuResolucao(driver);
 
-		// PesquisaResolucao pesquisa = new PesquisaResolucao(driver);
-		// pesquisa.parametrosPesquisa();
-		// Thread.sleep(3000);
+//		 PesquisaResolucao pesquisa = new PesquisaResolucao(driver);
+//		 pesquisa.parametrosPesquisa();
+//		 Thread.sleep(3000);
 
 		CadastroAbaResolucao resolucao = new CadastroAbaResolucao(driver);
 		resolucao.abaResolucao();

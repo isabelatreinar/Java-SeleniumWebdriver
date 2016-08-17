@@ -55,3 +55,12 @@ como é uma variável global (vale pra toda a classe) você não precisa passar no p
 na primeira vc não tem uma variável global, então tem que passar via parâmetro do método 
 so que vc tem também um driver nesta classe 
 então se quiser pode tirar a do parâmetro que vai funcionar normalmente 
+
+----------------------------------
+Converter data em string:
+
+//Retorna a data atual, c contém a data atual
+		Calendar c = Calendar.getInstance();
+		//Converte a data para String
+		SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
+		String dtInicio = s.format(c.getTime());

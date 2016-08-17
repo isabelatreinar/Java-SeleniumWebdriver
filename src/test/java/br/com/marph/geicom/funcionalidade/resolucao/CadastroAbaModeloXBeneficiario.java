@@ -8,9 +8,18 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import br.com.marph.geicom.util.SeleniumUtil;
+
 public class CadastroAbaModeloXBeneficiario {
 
+	private static final String BTN_PROXIMO = "btnProximo";
+	private static final String BTN_IMPORTAR = "buttonImportar";
+	private static final String SELECIONAR_MODEL_INDICADOR = ".//*[@id='modeloIndicadorImportar_chosen']/div/div/input";
+	private static final String MODELO_INDICADOR = ".//*[@id='modeloIndicadorImportar_chosen']/a/span";
+	private static final String BTN_IMPORTAR_PLANILHA = "buttonImportarPlanilha";
 	private WebDriver driver;
+	private SeleniumUtil seleniumUtil;
+	private final String modeloIndic = "Primeiro";
 
 	public CadastroAbaModeloXBeneficiario(WebDriver driver) {
 		this.driver = driver;
@@ -18,19 +27,17 @@ public class CadastroAbaModeloXBeneficiario {
 
 	public void associarModeloBeneficiario() throws AWTException, InterruptedException {
 
+		seleniumUtil = SeleniumUtil.getInstance();
+
 		Thread.sleep(6000);
 
-		WebElement importarPlanilha = driver.findElement(By.id("buttonImportarPlanilha"));
-		importarPlanilha.click();
+		seleniumUtil.clickElementId(driver, BTN_IMPORTAR_PLANILHA);
 
-		WebElement modeloIndicador = driver.findElement(By.xpath(".//*[@id='modeloIndicadorImportar_chosen']/a/span"));
-		modeloIndicador.click();
+		seleniumUtil.clickElementXpath(driver, MODELO_INDICADOR);
 
-		WebElement selecionarModelo = driver
-				.findElement(By.xpath(".//*[@id='modeloIndicadorImportar_chosen']/div/div/input"));
-		selecionarModelo.click();
-		selecionarModelo.sendKeys("Primeiro");
-		selecionarModelo.sendKeys(Keys.ENTER);
+		seleniumUtil.clickElementXpath(driver, SELECIONAR_MODEL_INDICADOR);
+		seleniumUtil.sendKeysXpath(driver, SELECIONAR_MODEL_INDICADOR, modeloIndic);
+		driver.findElement(By.xpath(SELECIONAR_MODEL_INDICADOR)).sendKeys(Keys.ENTER);
 
 		File planilha = new File("./data/Geicom/modeloBeneficiarioExport.xlsx");
 
@@ -42,12 +49,10 @@ public class CadastroAbaModeloXBeneficiario {
 			System.out.println("Arquivo não encontrado!");
 		}
 
-		WebElement importar = driver.findElement(By.id("buttonImportar"));
-		importar.click();
+		seleniumUtil.clickElementId(driver, BTN_IMPORTAR);
 		Thread.sleep(8000);
-		
-		WebElement proximo = driver.findElement(By.id("btnProximo"));
-		proximo.click();
+
+		seleniumUtil.clickElementId(driver, BTN_PROXIMO);
 
 	}
 }

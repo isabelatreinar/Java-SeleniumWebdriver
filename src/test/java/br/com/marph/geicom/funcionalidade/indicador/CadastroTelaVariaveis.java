@@ -1,12 +1,19 @@
 package br.com.marph.geicom.funcionalidade.indicador;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import br.com.marph.geicom.util.SeleniumUtil;
 
 public class CadastroTelaVariaveis {
 
+	private static final String BTN_AVANCAR = "btnSalvar1";
+	private static final String BTN_SALVAR = ".//*[@class='_salvarVariavel']";
+	private static final String DESCRICAO = "descricao";
+	private static final String NOME_VARIAVEL = ".//*[@class='form-control-tit _nome']";
+	private static final String CADASTRAR_VARIAVEL = "criar";
+
 	private WebDriver driver;
+	private SeleniumUtil seleniumUtil;
 	private String nome = "Taxa";
 	private String descr = "Taxa de Adesao";
 
@@ -14,27 +21,24 @@ public class CadastroTelaVariaveis {
 
 		this.driver = driver;
 	}
-	
-	public void cadastrarVariaveis(){
-		
-		WebElement criarVariavel = driver.findElement(By.id("criar"));
-		criarVariavel.click();
-		
-		WebElement nomeVariavel = driver.findElement(By.xpath(".//*[@class='form-control-tit _nome']"));
-		nomeVariavel.click();
-		nomeVariavel.sendKeys(nome);
-		
-		WebElement descricao = driver.findElement(By.name("descricao"));
-		descricao.click();
-		descricao.sendKeys(descr);
-		
-		WebElement salvar = driver.findElement(By.xpath(".//*[@class='_salvarVariavel']"));
-		salvar.click();
-		
-		//Clicar no botão Avançar
-		WebElement avancar = driver.findElement(By.id("btnSalvar1"));
-		avancar.click();
-		
+
+	public void cadastrarVariaveis() {
+
+		seleniumUtil = SeleniumUtil.getInstance();
+
+		seleniumUtil.clickElementId(driver, CADASTRAR_VARIAVEL);
+
+		seleniumUtil.clickElementXpath(driver, NOME_VARIAVEL);
+		seleniumUtil.sendKeysXpath(driver, NOME_VARIAVEL, nome);
+
+		seleniumUtil.clickElementName(driver, DESCRICAO);
+		seleniumUtil.sendKeysName(driver, DESCRICAO, descr);
+
+		seleniumUtil.clickElementXpath(driver, BTN_SALVAR);
+
+		// Clicar no botão Avançar
+		seleniumUtil.clickElementId(driver, BTN_AVANCAR);
+
 	}
 
 }
