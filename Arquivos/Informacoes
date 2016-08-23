@@ -64,3 +64,26 @@ Converter data em string:
 		//Converte a data para String
 		SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
 		String dtInicio = s.format(c.getTime());
+		
+------------------------------------
+
+// objeto que guarda na memória (ctrl+c) o caminho
+		// C:\\GEICOM\\beneficiarioExport
+		// StringSelection ss = new
+		// StringSelection("C:\\arquivoselenium\\beneficiarioExport");
+		// Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,
+		// null);
+
+		// // comandos robot para selecionar na máquina o arquivo
+		// // beneficiarioExport
+		// Robot robot = new Robot();
+		// // Press pressiona a tecla passada por parâmetro
+		// robot.keyPress(KeyEvent.VK_ENTER);
+		// // Release solta a tecla passada por parâmetro
+		// robot.keyRelease(KeyEvent.VK_ENTER);
+		// robot.keyPress(KeyEvent.VK_CONTROL);
+		// robot.keyPress(KeyEvent.VK_V);
+		// robot.keyRelease(KeyEvent.VK_CONTROL);
+		// robot.keyRelease(KeyEvent.VK_V);
+		// robot.keyPress(KeyEvent.VK_ENTER);
+		// robot.keyRelease(KeyEvent.VK_ENTER);

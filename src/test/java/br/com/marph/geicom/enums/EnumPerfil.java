@@ -4,7 +4,7 @@ public enum EnumPerfil {
 
 	ADMINISTRADOR("16932"), 
 	EQUIPE_GEICOM("5909"), 
-	SECRETARIO("");
+	SUPERINTENDENCIA_CONTRATOS("6677");
 	
 
 	private String id;
