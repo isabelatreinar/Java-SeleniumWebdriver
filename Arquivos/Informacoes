@@ -1,0 +1,89 @@
+Select base = new Select(driver.findElement(By.xpath(".//*[@id='termosBaseLegal_chosen']/div/ul/li[1]")));
+base.selectByValue("Deliberação 1224 - PM: Sim PC: Sim TR: Sim ASE: Não ABM: Não ABE: Não");
+-----
+
+WebElement comboboxElement = driver.findElement(By.xpath(".//*[@id='termosBaseLegal_chosen']/div/ul/li[1]")); 
+		Select combobox = new Select(comboboxElement); 
+		combobox.selectByVisibleText("1224");
+-----
+//dar foco no campo
+JavaScript.getTooltip(driver,".//*[@id='termosBaseLegal_chosen']/ul");
+//pegar primeiro elemento da tela
+$('#form_id :input:first').focus();
+-----------
+
+Espera explícita:
+
+WebDriverWait wait = new WebDriverWait(driver, 5);
+
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+WebElement email = driver.findElement(By.id("email"));
+email.sendKeys("anotaai@gmail.com");
+
+ler: http://stefanteixeira.com.br/2014/04/29/entendendo-os-tipos-de-esperas-no-selenium-webdriver/
+
+DECLARAR:
+Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)    
+			    .withTimeout(2, TimeUnit.SECONDS)    
+			    .pollingEvery(1, TimeUnit.SECONDS)   
+			    .ignoring(NoSuchElementException.class);
+USAR:
+
+//      WebDriverWait wait = new WebDriverWait(driver, 5);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("numero")));
+//		WebElement btnProfile = driver.findElement(By.id("numero"));
+//		btnProfile.click();
+//		btnProfile.sendKeys(numeroBase);
+
+wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttonImportar")));
+-----------------------
+
+new Actions(driver).moveToElement(element).perform();
+--------------------------
+assertEquals(nome, driver.findElement(By.id("name_rg_display_section")).getText());
+assertEquals("Email: " + email, driver.findElement(By.id("email_rg_display_section")).getText());
+assertEquals("Telefone: " + telefone, driver.findElement(By.id("phone_rg_display_section")).getText());
+
+-----------------------------
+
+import static org.junit.Assert.*;
+-----------------------------
+Variáveis passados como parâmetro do método ou variável global:
+
+na segunda classe o driver é passado via construtor 
+como é uma variável global (vale pra toda a classe) você não precisa passar no parâmetro
+na primeira vc não tem uma variável global, então tem que passar via parâmetro do método 
+so que vc tem também um driver nesta classe 
+então se quiser pode tirar a do parâmetro que vai funcionar normalmente 
+
+----------------------------------
+Converter data em string:
+
+//Retorna a data atual, c contém a data atual
+		Calendar c = Calendar.getInstance();
+		//Converte a data para String
+		SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
+		String dtInicio = s.format(c.getTime());
+		
+------------------------------------
+
+// objeto que guarda na memória (ctrl+c) o caminho
+		// C:\\GEICOM\\beneficiarioExport
+		// StringSelection ss = new
+		// StringSelection("C:\\arquivoselenium\\beneficiarioExport");
+		// Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,
+		// null);
+
+		// // comandos robot para selecionar na máquina o arquivo
+		// // beneficiarioExport
+		// Robot robot = new Robot();
+		// // Press pressiona a tecla passada por parâmetro
+		// robot.keyPress(KeyEvent.VK_ENTER);
+		// // Release solta a tecla passada por parâmetro
+		// robot.keyRelease(KeyEvent.VK_ENTER);
+		// robot.keyPress(KeyEvent.VK_CONTROL);
+		// robot.keyPress(KeyEvent.VK_V);
+		// robot.keyRelease(KeyEvent.VK_CONTROL);
+		// robot.keyRelease(KeyEvent.VK_V);
+		// robot.keyPress(KeyEvent.VK_ENTER);
+		// robot.keyRelease(KeyEvent.VK_ENTER);
