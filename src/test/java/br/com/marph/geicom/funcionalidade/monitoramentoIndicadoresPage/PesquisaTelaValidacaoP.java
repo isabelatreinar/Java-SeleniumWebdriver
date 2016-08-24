@@ -29,7 +29,7 @@ public class PesquisaTelaValidacaoP {
 	private final String opcaoModelo = "Primeiro";
 	private final String opcaoPeriodo = "01/01/2016";
 	private final String opcaoUnidadeRegional = "BELO HORIZONTE";
-	private final String opcaoBeneficiario = "APAE DE ALÉM PARAIBA";
+	private final String opcaoBeneficiario = "ARCOS";
 	
 	public PesquisaTelaValidacaoP(WebDriver driver) {
 		this.driver = driver;

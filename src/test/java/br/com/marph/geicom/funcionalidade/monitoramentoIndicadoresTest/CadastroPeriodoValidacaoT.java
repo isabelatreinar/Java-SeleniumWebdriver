@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.PesquisaTelaMonitoramentoP;
-import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.PreenchimentoCadastroPeriodoValidacaoP;
+import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.FormularioCadastroPeriodoValidacaoP;
 import br.com.marph.geicom.util.AcessoUtils;
 import br.com.marph.geicom.util.IConstante;
 import br.com.marph.geicom.util.Menus;
@@ -16,6 +16,8 @@ import br.com.marph.geicom.util.Menus;
 public class CadastroPeriodoValidacaoT {
 
 	private WebDriver driver;
+	private PesquisaTelaMonitoramentoP pesquisaMonitoramento;
+	FormularioCadastroPeriodoValidacaoP periodoValidacao;
 
 	@Before
 	public void startUp() {
@@ -33,10 +35,10 @@ public class CadastroPeriodoValidacaoT {
 		Menus.MenuProcessos(driver);
 		Menus.subMenuMonitoramento(driver);
 		
-		PesquisaTelaMonitoramentoP pesquisaMonitoramento = new PesquisaTelaMonitoramentoP(driver);
+		pesquisaMonitoramento = new PesquisaTelaMonitoramentoP(driver);
 		pesquisaMonitoramento.pesquisar();
 		
-		PreenchimentoCadastroPeriodoValidacaoP periodoValidacao = new PreenchimentoCadastroPeriodoValidacaoP(driver);
+		periodoValidacao = new FormularioCadastroPeriodoValidacaoP(driver);
 		periodoValidacao.preencherCadastro();
 		
 	}

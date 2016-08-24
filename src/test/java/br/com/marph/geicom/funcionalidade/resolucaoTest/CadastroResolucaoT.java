@@ -25,6 +25,16 @@ import br.com.marph.geicom.util.Menus;
 public class CadastroResolucaoT {
 
 	private WebDriver driver;
+	private CadastroAbaResolucaoP resolucao;
+	private CadastroAbaBeneficiarioP beneficiario;
+	private CadastroAbaIndicadoresP indicadores;
+	private CadastroAbaPeriodosP periodos;
+	private CadastroAbaCronogramaP cronograma;
+	private CadastroAbaIndicXConogramaP abaIndicXCrono;
+	private CadastroAbaModeloXBeneficiarioP abaModeloXCronograma;
+	private CadastroAbaImportarMetasP abaImportacaoMetas;
+	private CadastroAbaImportarParcelasP abaImportacaoParcelas;
+	private PesquisaResolucaoP pesquisa;
 
 	@Before
 	public void startUp() {
@@ -47,35 +57,35 @@ public class CadastroResolucaoT {
 		Menus.MenuCadastros(driver);
 		Menus.subMenuResolucao(driver);
 
-//		 PesquisaResolucaoP pesquisa = new PesquisaResolucaoP(driver);
-//		 pesquisa.parametrosPesquisa();
-//		 Thread.sleep(3000);
+//		pesquisa = new PesquisaResolucaoP(driver);
+//		pesquisa.parametrosPesquisa();
+//		Thread.sleep(3000);
 
-		CadastroAbaResolucaoP resolucao = new CadastroAbaResolucaoP(driver);
+		resolucao = new CadastroAbaResolucaoP(driver);
 		resolucao.abaResolucao();
 
-		CadastroAbaBeneficiarioP beneficiario = new CadastroAbaBeneficiarioP(driver);
+		beneficiario = new CadastroAbaBeneficiarioP(driver);
 		beneficiario.abaBeneficiarios();
 
-		CadastroAbaIndicadoresP indicadores = new CadastroAbaIndicadoresP(driver);
+		indicadores = new CadastroAbaIndicadoresP(driver);
 		indicadores.abaIndicadores();
 
-		CadastroAbaPeriodosP periodos = new CadastroAbaPeriodosP(driver);
+		periodos = new CadastroAbaPeriodosP(driver);
 		periodos.abaPeriodos();
 
-		CadastroAbaCronogramaP cronograma = new CadastroAbaCronogramaP(driver);
+		cronograma = new CadastroAbaCronogramaP(driver);
 		cronograma.abaCronograma();
 
-		CadastroAbaIndicXConogramaP abaIndicXCrono = new CadastroAbaIndicXConogramaP(driver);
+		abaIndicXCrono = new CadastroAbaIndicXConogramaP(driver);
 		abaIndicXCrono.associarIndicadoresCronograma();
 
-		CadastroAbaModeloXBeneficiarioP abaModeloXCronograma = new CadastroAbaModeloXBeneficiarioP(driver);
+		abaModeloXCronograma = new CadastroAbaModeloXBeneficiarioP(driver);
 		abaModeloXCronograma.associarModeloBeneficiario();
 
-		CadastroAbaImportarMetasP abaImportacaoMetas = new CadastroAbaImportarMetasP(driver);
+		abaImportacaoMetas = new CadastroAbaImportarMetasP(driver);
 		abaImportacaoMetas.importarMetas();
 
-		CadastroAbaImportarParcelasP abaImportacaoParcelas = new CadastroAbaImportarParcelasP(driver);
+		abaImportacaoParcelas = new CadastroAbaImportarParcelasP(driver);
 		abaImportacaoParcelas.importarParcelas();
 	}
 

@@ -13,28 +13,27 @@ import br.com.marph.geicom.util.Menus;
 public class SolicitacaoPagamentoT {
 
 	private WebDriver driver;
+	private PesquisaSolicitacaoPagamentoP solicitacaoPagamento;
 
 	@Before
 	public void startUp() {
 
 		driver = new FirefoxDriver();
 	}
-	
+
 	@Test
-	public void solicitarPagamento() throws InterruptedException{
-		
+	public void solicitarPagamento() throws InterruptedException {
+
 		driver.get(IConstante.Url.LOGIN);
-		
+
 		AcessoUtils.acessarSistemaAdmin(driver);
-		
+
 		Menus.MenuProcessos(driver);
 		Menus.subMenuSolicitacaoPagamento(driver);
-		
-		PesquisaSolicitacaoPagamentoP solicitacaoPagamento = new PesquisaSolicitacaoPagamentoP(driver);
+
+		solicitacaoPagamento = new PesquisaSolicitacaoPagamentoP(driver);
 		solicitacaoPagamento.pesquisarParcela();
-		
-		
-		
+
 	}
 
 }

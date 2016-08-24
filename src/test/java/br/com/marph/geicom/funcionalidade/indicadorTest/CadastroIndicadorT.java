@@ -17,6 +17,9 @@ import br.com.marph.geicom.util.Menus;
 public class CadastroIndicadorT {
 
 	private WebDriver driver;
+	private CadastroTelaIndicadorP indicador;
+	private CadastroTelaVariaveisP variaveis;
+	private CadastroTelaFormulaP formula;
 
 	@Before
 	public void startUp() {
@@ -41,14 +44,14 @@ public class CadastroIndicadorT {
 		Menus.MenuCadastros(driver);
 		Menus.subMenuIndicador(driver);
 
-		CadastroTelaIndicadorP indicador = new CadastroTelaIndicadorP(driver);
+		indicador = new CadastroTelaIndicadorP(driver);
 		indicador.cadastrarTelaIndicador();
 		Thread.sleep(5000);
 
-		CadastroTelaVariaveisP variaveis = new CadastroTelaVariaveisP(driver);
+		variaveis = new CadastroTelaVariaveisP(driver);
 		variaveis.cadastrarVariaveis();
 
-		CadastroTelaFormulaP formula = new CadastroTelaFormulaP(driver);
+		formula = new CadastroTelaFormulaP(driver);
 		formula.cadastrarFormula();
 
 	}

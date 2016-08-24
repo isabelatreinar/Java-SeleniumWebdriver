@@ -11,7 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.marph.geicom.funcionalidade.baseLegalPage.PreenchimentoCadastroBaseLegalP;
+import br.com.marph.geicom.funcionalidade.baseLegalPage.FormularioCadastroBaseLegalP;
 import br.com.marph.geicom.util.AcessoUtils;
 import br.com.marph.geicom.util.IConstante;
 import br.com.marph.geicom.util.Menus;
@@ -19,6 +19,7 @@ import br.com.marph.geicom.util.Menus;
 public class CadastroBaseLegalT {
 
 	private WebDriver driver;
+	private FormularioCadastroBaseLegalP cadastroBaseLegal;
 
 
 	@Before
@@ -44,7 +45,7 @@ public class CadastroBaseLegalT {
 		Menus.subMenuBaseLegal(driver);
 			
 
-		PreenchimentoCadastroBaseLegalP cadastroBaseLegal = new PreenchimentoCadastroBaseLegalP(driver);
+		cadastroBaseLegal = new FormularioCadastroBaseLegalP(driver);
 		cadastroBaseLegal.preencherCadastro();
 
 	}

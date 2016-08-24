@@ -14,6 +14,8 @@ import br.com.marph.geicom.util.Menus;
 public class FormalizacaoTermoT {
 
 	private WebDriver driver;
+	private PesquisaTermoFormalizacaoP pesquisa;
+	private CadastroModeloTermoP modelo;
 
 	@Before
 	public void startUp() {
@@ -30,10 +32,10 @@ public class FormalizacaoTermoT {
 		Menus.MenuResolucoes(driver);
 		Menus.subMenuTermosAditivosV1(driver);
 
-		PesquisaTermoFormalizacaoP pesquisa = new PesquisaTermoFormalizacaoP(driver);
+		pesquisa = new PesquisaTermoFormalizacaoP(driver);
 		pesquisa.pesquisarResolucao();
 
-		CadastroModeloTermoP modelo = new CadastroModeloTermoP(driver);
+		modelo = new CadastroModeloTermoP(driver);
 		modelo.cadastrarModeloTermo();
 		modelo.formalizarTermo();
 		modelo.tornarVigente();

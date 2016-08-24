@@ -27,7 +27,7 @@ public class PesquisaSolicitacaoPagamentoP {
 	private final String opcaoResolucao = "1235";
 	private final String opcaoModelo = "Primeiro";
 	private final String opcaoDataPgto = "01/10/2016";
-	private final String opcaoBeneficiario = "APAE DE ALÉM PARAIBA";
+	private final String opcaoBeneficiario = "ARCOS";
 	
 	
 	public PesquisaSolicitacaoPagamentoP(WebDriver driver) {

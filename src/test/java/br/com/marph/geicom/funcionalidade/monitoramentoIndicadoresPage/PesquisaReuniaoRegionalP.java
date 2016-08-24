@@ -28,7 +28,7 @@ public class PesquisaReuniaoRegionalP {
 	private final String opcaoResolucao = "1235";
 	private final String opcaoModelo = "Primeiro";
 	private final String opcaoPeriodo = "01/01/2016";
-	private final String opcaoBeneficiario = "APAE DE ALÉM PARAIBA";
+	private final String opcaoBeneficiario = "ARCOS";
 	
 	
 	public PesquisaReuniaoRegionalP(WebDriver driver){

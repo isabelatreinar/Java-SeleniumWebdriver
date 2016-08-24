@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.PesquisaTelaValidacaoP;
-import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.PreenchimentoValidacaoResultP;
+import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.FormularioValidacaoResultP;
 import br.com.marph.geicom.util.AcessoUtils;
 import br.com.marph.geicom.util.IConstante;
 import br.com.marph.geicom.util.Menus;
@@ -17,6 +17,8 @@ import br.com.marph.geicom.util.Menus;
 public class ValidacaoResultadosT {
 
 	private WebDriver driver;
+	private PesquisaTelaValidacaoP pesquisa;
+	private FormularioValidacaoResultP cadastro;
 
 	@Before
 	public void startUp() {
@@ -35,10 +37,10 @@ public class ValidacaoResultadosT {
 		Menus.subMenuValidacao(driver);
 		Thread.sleep(8000);
 		
-		PesquisaTelaValidacaoP pesquisar = new PesquisaTelaValidacaoP(driver);
-		pesquisar.pesquisarValidacao();
+		pesquisa = new PesquisaTelaValidacaoP(driver);
+		pesquisa.pesquisarValidacao();
 		
-		PreenchimentoValidacaoResultP cadastro = new PreenchimentoValidacaoResultP(driver);
+		cadastro = new FormularioValidacaoResultP(driver);
 		cadastro.preencherValidacaoResult();
 		
 

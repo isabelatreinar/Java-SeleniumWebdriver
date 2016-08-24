@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 public class Menus {
 
+	private static final String SUB_MENU_SUBSECRETARIA = ".//*[@id='subsecretariaMenu']/td[2]";
+	private static final String SUB_MENU_UNIDADE_REGIONAL = ".//*[@id='grsMenu']/td[2]";
 	private static final String SUB_MENU_MICRO = ".//*[@id='microMenu']/td[2]";
 	private static final String SUB_MENU_MACRO = ".//*[@id='macroMenu']/td[2]";
 	private static final String MENU_RESOLUCOES = "//td[@onmouseup='cmItemMouseUp (this,0)']";
@@ -79,5 +81,13 @@ public class Menus {
 
 	public static void subMenuMicro(WebDriver driver) {
 		driver.findElement(By.xpath(SUB_MENU_MICRO)).click();
+	}
+	
+	public static void subMenuUnidadeRegional(WebDriver driver) {
+		driver.findElement(By.xpath(SUB_MENU_UNIDADE_REGIONAL)).click();
+	}
+	
+	public static void subMenuSubsecretaria(WebDriver driver) {
+		driver.findElement(By.xpath(SUB_MENU_SUBSECRETARIA)).click();
 	}
 }

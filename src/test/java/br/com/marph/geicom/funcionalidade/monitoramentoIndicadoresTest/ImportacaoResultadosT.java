@@ -30,6 +30,7 @@ public class ImportacaoResultadosT {
 	private WebDriver driver;
 	private SeleniumUtil seleniumUtil;
 	private final String opcaoConteudo = "Importação";
+	private PesquisaTelaMonitoramentoP pesquisaMonitoramento;
 
 //	public ImportacaoResultados(WebDriver driver) {
 //		this.driver = driver;
@@ -51,7 +52,7 @@ public class ImportacaoResultadosT {
 		Menus.MenuProcessos(driver);
 		Menus.subMenuMonitoramento(driver);
 		
-		PesquisaTelaMonitoramentoP pesquisaMonitoramento = new PesquisaTelaMonitoramentoP(driver);
+		pesquisaMonitoramento = new PesquisaTelaMonitoramentoP(driver);
 		pesquisaMonitoramento.pesquisar();
 
 		importarPlanilha();

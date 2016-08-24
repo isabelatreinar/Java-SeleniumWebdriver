@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.marph.geicom.funcionalidade.microPage.PreenchimentoCadastroMicroP;
+import br.com.marph.geicom.funcionalidade.microPage.FormularioCadastroMicroP;
 import br.com.marph.geicom.util.AcessoUtils;
 import br.com.marph.geicom.util.IConstante;
 import br.com.marph.geicom.util.Menus;
@@ -13,7 +13,7 @@ import br.com.marph.geicom.util.Menus;
 public class CadastroMicroT {
 
 	private WebDriver driver;
-	private PreenchimentoCadastroMicroP cadastro;
+	private FormularioCadastroMicroP cadastro;
 
 	@Before
 	public void StartUp() {
@@ -31,7 +31,7 @@ public class CadastroMicroT {
 		Menus.MenuCadastros(driver);
 		Menus.subMenuMicro(driver);
 		
-		cadastro = new PreenchimentoCadastroMicroP(driver);
+		cadastro = new FormularioCadastroMicroP(driver);
 		cadastro.preencherCadastro();
 		
 		

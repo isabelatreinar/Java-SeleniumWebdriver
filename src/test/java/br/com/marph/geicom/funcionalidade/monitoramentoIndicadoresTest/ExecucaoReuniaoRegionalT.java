@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.PesquisaReuniaoRegionalP;
-import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.PreencherReuniaoRegionalP;
+import br.com.marph.geicom.funcionalidade.monitoramentoIndicadoresPage.FormularioReuniaoRegionalP;
 import br.com.marph.geicom.util.AcessoUtils;
 import br.com.marph.geicom.util.IConstante;
 import br.com.marph.geicom.util.Menus;
@@ -14,6 +14,8 @@ import br.com.marph.geicom.util.Menus;
 public class ExecucaoReuniaoRegionalT {
 
 	private WebDriver driver;
+	private PesquisaReuniaoRegionalP pesquisaReuniao;
+	private FormularioReuniaoRegionalP realizarReuniao;
 
 	@Before
 	public void startUp() {
@@ -31,10 +33,10 @@ public class ExecucaoReuniaoRegionalT {
 		Menus.subMenuReuniao(driver);
 		Thread.sleep(6000);
 		
-		PesquisaReuniaoRegionalP pesquisaReuniao = new PesquisaReuniaoRegionalP(driver);
+		pesquisaReuniao = new PesquisaReuniaoRegionalP(driver);
 		pesquisaReuniao.pesquisarReuniao();
 		
-		PreencherReuniaoRegionalP realizarReuniao = new PreencherReuniaoRegionalP(driver);
+		realizarReuniao = new FormularioReuniaoRegionalP(driver);
 		realizarReuniao.preencherReuniao();
 	
 	}

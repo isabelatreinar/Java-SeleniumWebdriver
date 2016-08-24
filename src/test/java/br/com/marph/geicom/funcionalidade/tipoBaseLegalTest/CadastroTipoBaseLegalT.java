@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.marph.geicom.funcionalidade.tipoBaseLegalPage.PreenchimentoCadastroTipoBaseP;
+import br.com.marph.geicom.funcionalidade.tipoBaseLegalPage.FormularioCadastroTipoBaseP;
 import br.com.marph.geicom.util.AcessoUtils;
 import br.com.marph.geicom.util.IConstante;
 import br.com.marph.geicom.util.Menus;
@@ -15,6 +15,7 @@ import br.com.marph.geicom.util.Menus;
 public class CadastroTipoBaseLegalT {
 
 	private WebDriver driver;
+	private FormularioCadastroTipoBaseP cadastroTipoBase;
 
 	@Before
 	public void startUp() {
@@ -38,7 +39,7 @@ public class CadastroTipoBaseLegalT {
 
 		// Instância da classe que preenche os elementos no cadastro de tipo de
 		// base
-		PreenchimentoCadastroTipoBaseP cadastroTipoBase = new PreenchimentoCadastroTipoBaseP(driver);
+		cadastroTipoBase = new FormularioCadastroTipoBaseP(driver);
 		cadastroTipoBase.preencherCadastro();
 	}
 
